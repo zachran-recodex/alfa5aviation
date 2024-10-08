@@ -119,16 +119,17 @@
 
                     <!-- Section Description -->
                     <p class="text-gray-600 mb-6 text-justify">
-                        Alfa5 Aviation specializes in providing exclusive private jet charter services around the world,
-                        especially within the Asia Pacific region.
+                        Alfa 5 Aviation is a pioneer in the aviation industry, founded with a vision to provide an unmatched
+                        flying experience for all our customers. Since our inception in 2022, we have made safety, comfort,
+                        and exceptional customer service the core principles of our business. As a company committed to
+                        quality, we always strive to provide flight services that meet and exceed the expectations of our
+                        passengers, making every journey with us a special and memorable moment.
                         <br><br>
-                        With a commitment to safety standards, convenience, and flexibility in aircraft types, we tailor
-                        our services to ensure passenger comfort. We invite you to experience travel that is oriented toward
-                        client service excellence.
-                        <br><br>
-                        At Alfa5 Aviation, we don't just provide luxury—we create unforgettable travel experiences.
-                        Dedicated
-                        to luxury, convenience, and safety in fleet usage, we elevate your travel experience to new heights.
+                        In our quest to be at the forefront of the aviation industry, Alfa 5 Aviation continues to innovate
+                        and evolve, ensuring that every aspect of our service is aligned with the highest standards. We
+                        understand that air travel is not just about getting from one place to another, but an experience
+                        that should be enjoyed with complete comfort and safety. Therefore, we focus on the details that
+                        ensure every journey is a pleasant one, from the booking process to the moment of landing.
                     </p>
 
                     <!-- Key Benefits List -->

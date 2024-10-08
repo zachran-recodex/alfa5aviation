@@ -25,16 +25,24 @@
 <body>
 
     <header>
-        <nav id="navbar"
-            class="border-gray-200 bg-transparent fixed top-0 left-0 w-full z-10 transition duration-300 ease-in-out">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="{{ route('home') }}" class="flex items-center">
-                    <img id="navbar-logo" src="{{ asset('images/logo.png') }}" class="w-[100px]"
-                        alt="Logo Sagala Pro" />
+    </header>
+
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="{{ asset('images/logo.png') }}" class="h-12" alt="Flowbite Logo">
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-6 items-center">
+                <a href="{{ route('login') }}" class="text-[#1A2D73]">
+                    <i class="fa-solid fa-user"></i>
                 </a>
-                <button id="menu-toggle" data-collapse-toggle="navbar-default" type="button"
-                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                    aria-controls="navbar-default" aria-expanded="false">
+                <button type="button"
+                    class="text-white bg-[#1A2D73] font-medium rounded-full text-sm px-4 py-2 text-center">
+                    Contact Us
+                </button>
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                    aria-controls="navbar-sticky" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 17 14">
@@ -42,107 +50,97 @@
                             d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul
-                        class="font-normal flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
-                        <li>
-                            <a href="{{ route('home') }}"
-                                class="block py-2 px-3 text-white text-lg font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('about') }}"
-                                class="block py-2 px-3 text-white text-lg font-semibold hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0">About
-                                Us</a>
-                        </li>
-                        <li class="relative group">
-                            <a href="{{ route('service') }}"
-                                class="flex items-center py-2 px-3 text-lg font-semibold text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0">
-                                Services
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </a>
-                            <div
-                                class="hidden group-hover:block absolute bg-white text-gray-900 rounded-lg shadow-lg mt-2 min-w-[150px] z-10">
-                                <ul class="py-2 text-sm text-gray-700">
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Aircraft &
-                                            Helicopter
-                                            Acquisition</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Aerial Fire-Fighting
-                                            Consultant &
-                                            Operation</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Heavy
-                                            &
-                                            Outsized Cargo Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Private Jet Charters
-                                            & Flights</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="relative group">
-                            <a href="{{ route('fleet') }}"
-                                class="flex items-center py-2 px-3 text-lg font-semibold text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0">
-                                Fleets
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </a>
-                            <div
-                                class="hidden group-hover:block absolute bg-white text-gray-900 rounded-lg shadow-lg mt-2 min-w-[150px] z-10">
-                                <ul class="py-2 text-sm text-gray-700">
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Aircraft &
-                                            Helicopter
-                                            Acquisition</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Aerial Fire-Fighting
-                                            Consultant &
-                                            Operation</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Heavy
-                                            &
-                                            Outsized Cargo Service</a>
-                                    </li>
-                                    <li>
-                                        <a href="" class="block px-4 py-2 hover:bg-gray-100">Private Jet
-                                            Charters
-                                            & Flights</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Contact Button -->
-                <div class="flex items-center gap-6">
-                    <a href="{{ route('login') }}" class="text-white hover:text-[#1A2D73]">
-                        <i class="fa-solid fa-user"></i>
-                    </a>
-
-                    <a href="{{ route('contact') }}"
-                        class="bg-[#1A2D73] text-white font-semibold py-2 px-6 rounded-full hover:bg-blue-900 transition">
-                        Contact Us
-                    </a>
-                </div>
             </div>
-        </nav>
-    </header>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="{{ route('home') }}"
+                            class="block py-2 px-3 text-white bg-[#1A2D73] rounded md:bg-transparent md:text-[#1A2D73] md:p-0"
+                            aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('about') }}"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1A2D73] md:p-0">About</a>
+                    </li>
+                    <li>
+                        <div id="dropdown-service" data-dropdown-toggle="dropdown-servicenav"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
+                            Services
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </div>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown-servicenav"
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="/service/private-jet-charter"
+                                        class="block px-4 py-2 hover:bg-gray-100">Private Jet Charter</a>
+                                </li>
+                                <li>
+                                    <a href="/service/private-jet-management-service"
+                                        class="block px-4 py-2 hover:bg-gray-100">Private Jet Management
+                                        Service</a>
+                                </li>
+                                <li>
+                                    <a href="/service/aviation-consulting"
+                                        class="block px-4 py-2 hover:bg-gray-100">Aviation Consulting</a>
+                                </li>
+                                <li>
+                                    <a href="/service/medical-air-ambulance"
+                                        class="block px-4 py-2 hover:bg-gray-100">Medical Air Ambulance /
+                                        Medevac</a>
+                                </li>
+                                <li>
+                                    <a href="/service/gsa-representative" class="block px-4 py-2 hover:bg-gray-100">GSA
+                                        Representative</a>
+                                </li>
+                                <li>
+                                    <a href="/service/operation"
+                                        class="block px-4 py-2 hover:bg-gray-100">Operations</a>
+                                </li>
+                                <li>
+                                    <a href="/service/engineering"
+                                        class="block px-4 py-2 hover:bg-gray-100">Engineering</a>
+                                </li>
+                                <li>
+                                    <a href="/service/comfort" class="block px-4 py-2 hover:bg-gray-100">Comfort</a>
+                                </li>
+                                <li>
+                                    <a href="/service/aircraft-brokerage"
+                                        class="block px-4 py-2 hover:bg-gray-100">Aircraft Brokerage</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="{{ route('fleet') }}" id="dropdown-fleet" data-dropdown-toggle="dropdown-fleetnav"
+                            class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
+                            Fleets
+                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                            </svg>
+                        </a>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown-fleetnav"
+                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Aw</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <main>
         @yield('content')
@@ -245,59 +243,7 @@
     </div>
 
     @stack('before-scripts')
-    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.getElementById('menu-toggle');
-            const navbar = document.getElementById('navbar-default');
-            const dropdownButton = document.getElementById('dropdownHoverButton');
-            const dropdownMenu = document.getElementById('dropdownHover');
-
-            menuToggle.addEventListener('click', function() {
-                navbar.classList.toggle('hidden');
-            });
-
-            dropdownButton.addEventListener('click', function() {
-                dropdownMenu.classList.toggle('hidden');
-            });
-
-            document.addEventListener('click', function(event) {
-                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                    dropdownMenu.classList.add('hidden');
-                }
-            });
-        });
-    </script>
-
-    <script>
-        const navbar = document.getElementById('navbar');
-        const logo = document.getElementById('navbar-logo');
-        const originalLogoSrc = '{{ asset('images/logo.png') }}';
-        const scrolledLogoSrc = '{{ asset('images/logo.png') }}'; // logo kedua
-
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white', 'shadow-lg');
-                navbar.classList.remove('bg-transparent');
-                logo.src = scrolledLogoSrc;
-                // Change text color of the navbar items
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.classList.remove('text-white');
-                    link.classList.add('text-black');
-                });
-            } else {
-                navbar.classList.add('bg-transparent');
-                navbar.classList.remove('bg-white', 'shadow-lg');
-                logo.src = originalLogoSrc;
-                // Revert text color of the navbar items
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.classList.remove('text-black');
-                    link.classList.add('text-white');
-                });
-            }
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 
     @stack('after-scripts')
 

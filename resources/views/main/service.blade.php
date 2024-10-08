@@ -116,7 +116,7 @@
                     <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
                         <!-- Image Section -->
                         <a href="{{ $service['url'] }}" class="w-1/3">
-                            <img class="object-cover w-full h-[180px]" src="{{ asset($service['image']) }}"
+                            <img class="object-cover w-full h-[250px]" src="{{ asset($service['image']) }}"
                                 alt="{{ $service['alt'] }}" />
                         </a>
 

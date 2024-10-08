@@ -35,56 +35,65 @@ class MainController extends Controller
             [
                 'image' => 'images/pj.jpg',
                 'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
                 'alt' => 'Private Jet Charter',
-                'url' => '#',
+                'url' => '/service/private-jet-charter',
             ],
             [
                 'image' => 'images/management.jpg',
                 'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
                 'alt' => 'Private Jet Management Service',
-                'url' => '#',
+                'url' => '/service/private-jet-management-service',
             ],
             [
                 'image' => 'images/consulting.jpg',
                 'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
                 'alt' => 'Aviation Consulting',
-                'url' => '#',
+                'url' => '/service/aviation-consulting',
             ],
             [
                 'image' => 'images/medevac.jpg',
                 'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
                 'alt' => 'Medical Air Ambulance / Medevac',
-                'url' => '#',
+                'url' => '/service/medical-air-ambulance',
             ],
             [
                 'image' => 'images/gsa.jpg',
                 'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
                 'alt' => 'GSA Representative',
-                'url' => '#',
+                'url' => '/service/gsa-representative',
             ],
             [
                 'image' => 'images/operation.jpg',
                 'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
                 'alt' => 'Operations',
-                'url' => '#',
+                'url' => '/service/operation',
             ],
             [
                 'image' => 'images/engineering.jpg',
                 'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
                 'alt' => 'Engineering',
-                'url' => '#',
+                'url' => '/service/engineering',
             ],
             [
                 'image' => 'images/comfort.jpg',
                 'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
                 'alt' => 'Comfort',
-                'url' => '#',
+                'url' => '/service/comfort',
             ],
             [
                 'image' => 'images/broker.jpg',
                 'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
                 'alt' => 'Aircraft Brokerage',
-                'url' => '#',
+                'url' => '/service/aircraft-brokerage',
             ],
         ];
 
@@ -227,65 +236,65 @@ class MainController extends Controller
             [
                 'image' => 'images/pj.jpg',
                 'title' => 'Private Jet Charter',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
                 'alt' => 'Private Jet Charter',
-                'url' => '#',
+                'url' => '/service/private-jet-charter',
             ],
             [
                 'image' => 'images/management.jpg',
                 'title' => 'Private Jet Management Service',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
                 'alt' => 'Private Jet Management Service',
-                'url' => '#',
+                'url' => '/service/private-jet-management-service',
             ],
             [
                 'image' => 'images/consulting.jpg',
                 'title' => 'Aviation Consulting',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
                 'alt' => 'Aviation Consulting',
-                'url' => '#',
+                'url' => '/service/aviation-consulting',
             ],
             [
                 'image' => 'images/medevac.jpg',
                 'title' => 'Medical Air Ambulance / Medevac',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
                 'alt' => 'Medical Air Ambulance / Medevac',
-                'url' => '#',
+                'url' => '/service/medical-air-ambulance',
             ],
             [
                 'image' => 'images/gsa.jpg',
                 'title' => 'GSA Representative',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
                 'alt' => 'GSA Representative',
-                'url' => '#',
+                'url' => '/service/gsa-representative',
             ],
             [
                 'image' => 'images/operation.jpg',
                 'title' => 'Operations',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
                 'alt' => 'Operations',
-                'url' => '#',
+                'url' => '/service/operation',
             ],
             [
                 'image' => 'images/engineering.jpg',
                 'title' => 'Engineering',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
                 'alt' => 'Engineering',
-                'url' => '#',
+                'url' => '/service/engineering',
             ],
             [
                 'image' => 'images/comfort.jpg',
                 'title' => 'Comfort',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
                 'alt' => 'Comfort',
-                'url' => '#',
+                'url' => '/service/comfort',
             ],
             [
                 'image' => 'images/broker.jpg',
                 'title' => 'Aircraft Brokerage',
-                'desc' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
                 'alt' => 'Aircraft Brokerage',
-                'url' => '#',
+                'url' => '/service/aircraft-brokerage',
             ],
         ];
 
@@ -327,9 +336,692 @@ class MainController extends Controller
         ]);
     }
 
+    public function private()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.private', [
+            'services' => $services,
+        ]);
+    }
+
+    public function management()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.management', [
+            'services' => $services,
+        ]);
+    }
+
+    public function consulting()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.consulting', [
+            'services' => $services,
+        ]);
+    }
+
+    public function medevac()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.medevac', [
+            'services' => $services,
+        ]);
+    }
+
+    public function gsa()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.gsa', [
+            'services' => $services,
+        ]);
+    }
+
+    public function operation()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.operation', [
+            'services' => $services,
+        ]);
+    }
+
+    public function engineering()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.engineering', [
+            'services' => $services,
+        ]);
+    }
+
+    public function comfort()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.comfort', [
+            'services' => $services,
+        ]);
+    }
+
+    public function broker()
+    {
+        // Data services
+        $services = [
+            [
+                'image' => 'images/pj.jpg',
+                'title' => 'Private Jet Charter',
+                'desc' => 'At Alfa5 Aviation, we bring innovation to business travel through our private jet charter services...',
+                'alt' => 'Private Jet Charter',
+                'url' => '/service/private-jet-charter',
+            ],
+            [
+                'image' => 'images/management.jpg',
+                'title' => 'Private Jet Management Service',
+                'desc' => 'Since its founding in 2022, Alfa5 Aviation has built a reputation as a leader in private jet management services...',
+                'alt' => 'Private Jet Management Service',
+                'url' => '/service/private-jet-management-service',
+            ],
+            [
+                'image' => 'images/consulting.jpg',
+                'title' => 'Aviation Consulting',
+                'desc' => 'Aviation Consulting Services provide access to professional guidance in addressing the complex challenges...',
+                'alt' => 'Aviation Consulting',
+                'url' => '/service/aviation-consulting',
+            ],
+            [
+                'image' => 'images/medevac.jpg',
+                'title' => 'Medical Air Ambulance / Medevac',
+                'desc' => 'We proud to offer a leading Medical Air Ambulance or Medevac service that is specifically designed to provide...',
+                'alt' => 'Medical Air Ambulance / Medevac',
+                'url' => '/service/medical-air-ambulance',
+            ],
+            [
+                'image' => 'images/gsa.jpg',
+                'title' => 'GSA Representative',
+                'desc' => 'As a trusted General Sales Agent (GSA) for various international airlines looking to expand their reach in Indonesia.',
+                'alt' => 'GSA Representative',
+                'url' => '/service/gsa-representative',
+            ],
+            [
+                'image' => 'images/operation.jpg',
+                'title' => 'Operations',
+                'desc' => 'Private Jet Charter for Business, especially through the Legacy 600, offers a travel experience tailored to meet the...',
+                'alt' => 'Operations',
+                'url' => '/service/operation',
+            ],
+            [
+                'image' => 'images/engineering.jpg',
+                'title' => 'Engineering',
+                'desc' => 'Alfa5 Aviation’s success in delivering exceptional private jet charter services is deeply rooted in its commitment to...',
+                'alt' => 'Engineering',
+                'url' => '/service/engineering',
+            ],
+            [
+                'image' => 'images/comfort.jpg',
+                'title' => 'Comfort',
+                'desc' => 'Comfort is at the heart of Alfa5 Aviation’s Private Jet Charter for Business, providing an experience that goes beyond...',
+                'alt' => 'Comfort',
+                'url' => '/service/comfort',
+            ],
+            [
+                'image' => 'images/broker.jpg',
+                'title' => 'Aircraft Brokerage',
+                'desc' => 'Alfa5 Aviation’s Aircraft Brokerage services provide clients with a comprehensive and personalized approach to buying, selling, or leasing...',
+                'alt' => 'Aircraft Brokerage',
+                'url' => '/service/aircraft-brokerage',
+            ],
+        ];
+
+        return view ('main.service.broker', [
+            'services' => $services,
+        ]);
+    }
+
     public function fleet()
     {
         return view ('main.fleet');
+    }
+
+    public function legacy()
+    {
+        // Data fleets
+        $fleets = [
+            [
+                'image' => 'images/about.jpg',
+                'title' => 'Embraer Legacy 600',
+                'alt' => 'Embraer Legacy 600',
+                'url' => '#',
+            ],
+        ];
+
+        return view ('main.fleet.legacy', [
+            'fleets' => $fleets,
+        ]);
     }
 
     public function contact()

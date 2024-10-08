@@ -115,7 +115,7 @@
                 <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
                     <!-- Image Section -->
                     <a href="#" class="w-1/3">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/pj.jpg') }}"
+                        <img class="object-cover w-full h-[200px]" src="{{ asset('images/about.jpg') }}"
                             alt="Private Jet Charter" />
                     </a>
 
@@ -127,31 +127,10 @@
                         <p class="text-gray-600 text-justify mb-4">
                             At Alfa5 Aviation, we set a new standard for corporate travel with our Private Jet Charter...
                         </p>
-                        <a href="#" class="text-[#1A2D73] font-semibold hover:underline">Discover More</a>
+                        <a href="{{ route('legacy') }}" class="text-[#1A2D73] font-semibold hover:underline">Discover
+                            More</a>
                     </div>
                 </div>
-
-                <!-- Card -->
-                <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
-                    <!-- Image Section -->
-                    <a href="#" class="w-1/3">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/pj.jpg') }}"
-                            alt="Private Jet Charter" />
-                    </a>
-
-                    <!-- Description Section -->
-                    <div class="w-2/3 p-6">
-                        <a href="#">
-                            <h5 class="text-xl font-bold text-gray-800 mb-2">Private Jet Charter</h5>
-                        </a>
-                        <p class="text-gray-600 text-justify mb-4">
-                            At Alfa5 Aviation, we set a new standard for corporate travel with our Private Jet Charter...
-                        </p>
-                        <a href="#" class="text-[#1A2D73] font-semibold hover:underline">Discover More</a>
-                    </div>
-                </div>
-
-                <!-- Repeat for other cards -->
             </div>
         </div>
     </section>

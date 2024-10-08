@@ -71,13 +71,6 @@
                     Request a Quote
                     <i class="fa-solid fa-arrow-right ms-2"></i>
                 </a>
-
-                <!-- Flight Calculator Button -->
-                <a href="#flight-calculator"
-                    class="border border-gray-400 text-white font-semibold py-3 px-6 rounded-full hover:border-white transition">
-                    Flight Calculator
-                    <i class="fa-solid fa-arrow-right ms-2"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -143,7 +136,7 @@
                     <!-- Button and Call to Action Section -->
                     <div class="flex items-center space-x-6">
                         <!-- Discover More Button -->
-                        <a href="#"
+                        <a href="{{ route('about') }}"
                             class="bg-[#1A2D73] text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-900 transition">
                             Discover More
                             <i class="fa-solid fa-arrow-right ms-2"></i>
@@ -242,7 +235,7 @@
                                 <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">{{ $fleet['title'] }}
                                 </h5>
                             </a>
-                            <a href="{{ $fleet['url'] }}"
+                            <a href="{{ route('legacy') }}"
                                 class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
                                 Discover More
                             </a>
