@@ -77,43 +77,12 @@
                         <div id="dropdown-servicenav"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="/service/private-jet-charter"
-                                        class="block px-4 py-2 hover:bg-gray-100">Private Jet Charter</a>
-                                </li>
-                                <li>
-                                    <a href="/service/private-jet-management-service"
-                                        class="block px-4 py-2 hover:bg-gray-100">Private Jet Management
-                                        Service</a>
-                                </li>
-                                <li>
-                                    <a href="/service/aviation-consulting"
-                                        class="block px-4 py-2 hover:bg-gray-100">Aviation Consulting</a>
-                                </li>
-                                <li>
-                                    <a href="/service/medical-air-ambulance"
-                                        class="block px-4 py-2 hover:bg-gray-100">Medical Air Ambulance /
-                                        Medevac</a>
-                                </li>
-                                <li>
-                                    <a href="/service/gsa-representative" class="block px-4 py-2 hover:bg-gray-100">GSA
-                                        Representative</a>
-                                </li>
-                                <li>
-                                    <a href="/service/operation"
-                                        class="block px-4 py-2 hover:bg-gray-100">Operations</a>
-                                </li>
-                                <li>
-                                    <a href="/service/engineering"
-                                        class="block px-4 py-2 hover:bg-gray-100">Engineering</a>
-                                </li>
-                                <li>
-                                    <a href="/service/comfort" class="block px-4 py-2 hover:bg-gray-100">Comfort</a>
-                                </li>
-                                <li>
-                                    <a href="/service/aircraft-brokerage"
-                                        class="block px-4 py-2 hover:bg-gray-100">Aircraft Brokerage</a>
-                                </li>
+                                @foreach ($navServices as $service)
+                                    <li>
+                                        <a href="{{ route('service.details', $service->slug) }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">{{ $service->title }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </li>
@@ -131,9 +100,16 @@
                         <div id="dropdown-fleetnav"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                <li>
-                                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Aw</a>
-                                </li>
+                                @forelse ($navFleets as $fleet)
+                                    <li>
+                                        <a href="{{ route('fleet.details', $fleet->slug) }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">{{ $fleet->title }}</a>
+                                    </li>
+                                @empty
+                                    <li>
+                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">No Fleets</a>
+                                    </li>
+                                @endforelse
                             </ul>
                         </div>
                     </li>
@@ -154,25 +130,23 @@
                 <div class="col-span-2 flex flex-col gap-4">
                     <img src="{{ asset('images/secondary-logo.png') }}" alt="Alfa5 Aviation Logo" class="w-[100px]">
                     <p class="text-justify">
-                        Alfa5 Aviation specializes in providing exclusive private jet charter services around the
-                        world,
-                        especially within the Asia Pacific region.
+                        {{ $setting->footer_text }}
                     </p>
                     <!-- Social Media Icons -->
                     <div class="flex gap-4">
-                        <a href="#">
+                        <a href="{{ $setting->instagram }}">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{ $setting->linkedin }}">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{ $setting->tiktok }}">
                             <i class="fa-brands fa-tiktok"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{ $setting->facebook }}">
                             <i class="fa-brands fa-facebook"></i>
                         </a>
-                        <a href="#">
+                        <a href="{{ $setting->whatsapp }}">
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
                     </div>
@@ -182,12 +156,11 @@
                 <div>
                     <h6 class="font-semibold text-[#FFDA03] text-2xl mb-4">Explore</h6>
                     <ul class="flex flex-col gap-4">
-                        <li><a href="#" class="hover:underline">Home</a></li>
-                        <li><a href="#" class="hover:underline">About Us</a></li>
-                        <li><a href="#" class="hover:underline">Services</a></li>
-                        <li><a href="#" class="hover:underline">News</a></li>
-                        <li><a href="#" class="hover:underline">Fleets</a></li>
-                        <li><a href="#" class="hover:underline">Contact Us</a></li>
+                        <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:underline">About Us</a></li>
+                        <li><a href="{{ route('service') }}" class="hover:underline">Services</a></li>
+                        <li><a href="{{ route('fleet') }}" class="hover:underline">Fleets</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:underline">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -195,13 +168,12 @@
                 <div>
                     <h6 class="font-semibold text-[#FFDA03] text-2xl mb-4">Our Services</h6>
                     <ul class="flex flex-col gap-4">
-                        <li><a href="#" class="hover:underline">Private Jet Charter</a></li>
-                        <li><a href="#" class="hover:underline">Private Jet Management Services</a>
-                        </li>
-                        <li><a href="#" class="hover:underline">Aviation Consulting</a></li>
-                        <li><a href="#" class="hover:underline">Medical Air Ambulance / Medevac</a>
-                        </li>
-                        <li><a href="#" class="hover:underline">GSA Representative</a></li>
+                        @foreach ($navServices as $service)
+                            <li>
+                                <a href="{{ route('service.details', $service->slug) }}"
+                                    class="hover:underline">{{ $service->title }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
@@ -211,19 +183,18 @@
                     <ul class="flex flex-col gap-4">
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-2"></i>
-                            <a href="tel:+6281818779955" class="hover:underline">+62 818 1877 9955</a>
+                            <a href="tel:+{{ $setting->phone_one }}"
+                                class="hover:underline">+{{ $setting->phone_one }}</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-2"></i>
-                            <a href="mailto:sales@alfa5aviation.com"
-                                class="hover:underline">sales@alfa5aviation.com</a>
+                            <a href="mailto:{{ $setting->email_one }}"
+                                class="hover:underline">{{ $setting->email_one }}</a>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-2"></i>
                             <a href="#" class="hover:underline text-justify">
-                                Graha Dirgantara 2nd floor unit H, Jl. Protokol Halim Perdanakusuma no.8, Jakarta
-                                Timur
-                                13610
+                                {{ $setting->address }}
                             </a>
                         </li>
                     </ul>

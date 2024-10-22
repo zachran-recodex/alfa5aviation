@@ -11,41 +11,6 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#2A6F97">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alfa5 Aviation">
-    <meta property="og:description" content="Private Jet Charter">
-    <meta property="og:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Alfa5 Aviation">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:logo" content="{{ asset('images/logo-sagala.png') }}" />
-    <meta property="og:locale:alternate" content="id_ID">
-    <meta property="og:updated_time" content="{{ now()->toIso8601String() }}">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="alfa5aviation.com">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="Alfa5 Aviation">
-    <meta name="twitter:description" content="Private Jet Charter">
-    <meta name="twitter:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:creator" content="">
-
-    <meta name="DC.title" content="Alfa5 Aviation">
-    <meta name="DC.creator" content="Zachran Razendra">
-    <meta name="DC.description" content="Private Jet Charter">
-    <meta name="DC.publisher" content="Alfa5 Aviation">
-    <meta name="DC.contributor" content="Zachran Razendra">
-    <meta name="DC.date" content="{{ now()->toIso8601String() }}">
-    <meta name="DC.type" content="text">
-    <meta name="DC.format" content="text/html">
-    <meta name="DC.identifier" content="{{ url()->current() }}">
-    <meta name="DC.language" content="en">
-    <meta name="DC.coverage" content="Worldwide">
-    <meta name="DC.rights" content="© Alfa5 Aviation">
-
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>Alfa5 Aviation</title>
@@ -115,20 +80,21 @@
                     <!-- Card -->
                     <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
                         <!-- Image Section -->
-                        <a href="{{ $service['url'] }}" class="w-1/3">
-                            <img class="object-cover w-full h-[250px]" src="{{ asset($service['image']) }}"
-                                alt="{{ $service['alt'] }}" />
+                        <a href="{{ route('service.details', $service->slug) }}" class="w-1/3">
+                            <img class="object-cover w-full h-[250px]" src="{{ Storage::url($service->image) }}"
+                                alt="{{ $service->title }}" />
                         </a>
 
                         <!-- Description Section -->
                         <div class="w-2/3 p-6">
-                            <a href="{{ $service['url'] }}">
-                                <h5 class="text-xl font-bold text-gray-800 mb-2">{{ $service['title'] }}</h5>
+                            <a href="{{ route('service.details', $service->slug) }}">
+                                <h5 class="text-xl font-bold text-gray-800 mb-2">{{ $service->title }}</h5>
                             </a>
                             <p class="text-gray-600 text-justify mb-4">
-                                {{ $service['desc'] }}
+                                {{ $service->description }}
                             </p>
-                            <a href="{{ $service['url'] }}" class="text-[#1A2D73] font-semibold hover:underline">Discover
+                            <a href="{{ route('service.details', $service->slug) }}"
+                                class="text-[#1A2D73] font-semibold hover:underline">Discover
                                 More</a>
                         </div>
                     </div>

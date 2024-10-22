@@ -3,65 +3,30 @@
 @section('meta_tag')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Private Jet Charter">
+    <meta name="description" content="{{ $pageSetups['home']->meta_description }}">
+    <meta name="keywords" content="{{ $pageSetups['home']->meta_keywords }}">
     <meta name="author" content="Zachran Razendra">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#2A6F97">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alfa5 Aviation">
-    <meta property="og:description" content="Private Jet Charter">
-    <meta property="og:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Alfa5 Aviation">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:logo" content="{{ asset('images/logo-sagala.png') }}" />
-    <meta property="og:locale:alternate" content="id_ID">
-    <meta property="og:updated_time" content="{{ now()->toIso8601String() }}">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="alfa5aviation.com">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="Alfa5 Aviation">
-    <meta name="twitter:description" content="Private Jet Charter">
-    <meta name="twitter:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:creator" content="">
-
-    <meta name="DC.title" content="Alfa5 Aviation">
-    <meta name="DC.creator" content="Zachran Razendra">
-    <meta name="DC.description" content="Private Jet Charter">
-    <meta name="DC.publisher" content="Alfa5 Aviation">
-    <meta name="DC.contributor" content="Zachran Razendra">
-    <meta name="DC.date" content="{{ now()->toIso8601String() }}">
-    <meta name="DC.type" content="text">
-    <meta name="DC.format" content="text/html">
-    <meta name="DC.identifier" content="{{ url()->current() }}">
-    <meta name="DC.language" content="en">
-    <meta name="DC.coverage" content="Worldwide">
-    <meta name="DC.rights" content="© Alfa5 Aviation">
-
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ $pageSetups['home']->title }}</title>
 @endsection
 
 @section('content')
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-screen flex justify-center items-center"
-        style="background-image: url({{ asset('images/hero-section.png') }})">
+        style="background-image: url({{ Storage::url($hero_section->image) }})">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
 
         <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
             <!-- Title -->
-            <h1 class="text-white text-6xl font-bold mb-8">Private Jet Charter</h1>
+            <h1 class="text-white text-6xl font-bold mb-8">{{ $hero_section->title }}</h1>
 
             <!-- Buttons -->
             <div class="flex space-x-4">
@@ -86,9 +51,9 @@
             <!-- Partner Logos Grid -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($partners as $partner)
-                    <a href="{{ $partner['url'] }}"
+                    <a href="{{ $partner->url }}" target="_blank"
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-                        <img src="{{ asset($partner['image']) }}" alt="{{ $partner['alt'] }}"
+                        <img src="{{ Storage::url($partner->image) }}" alt="{{ $partner->title }}"
                             class="mx-auto max-h-16 object-contain">
                     </a>
                 @endforeach
@@ -101,8 +66,8 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Image Section -->
-                <img src="{{ asset('images/about.jpg') }}" alt="Private Jet Charter"
-                    class="w-full h-full object-cover rounded-lg">
+                <img src="{{ Storage::url($about->image) }}" alt="Private Jet Charter"
+                    class="w-full h-[500px] object-cover rounded-lg">
 
                 <!-- Text Section -->
                 <div class="flex flex-col justify-center">
@@ -111,20 +76,12 @@
 
                     <!-- Section Title -->
                     <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 text-justify">
-                        Our Private Jet Charters Save Your Time and Give You Comfort
+                        {{ $about->title }}
                     </h2>
 
                     <!-- Section Description -->
                     <p class="text-gray-600 mb-6 text-justify">
-                        Alfa5 Aviation specializes in providing exclusive private jet charter services around the world,
-                        especially within the Asia Pacific Region.
-                        <br><br>
-                        With a commitment to safety standards, convenience, and flexibility of aircraft types, we tailor our
-                        services for passenger comfort. We invite you to experience a travel journey that meets client
-                        service excellence.
-                        <br><br>
-                        Alfa5 Aviation not only provides luxury, but we also create unforgettable travel experiences.
-                        Dedicated to a journey of luxury, convenience, and safety, we elevate your flight experience.
+                        {{ $about->description }}
                     </p>
 
                     <!-- Key Benefits List -->
@@ -149,7 +106,8 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-sm font-medium text-gray-600">CALL ANYTIME</p>
-                                <a href="tel:+6281818779955" class="text-lg font-bold text-gray-800">+62 818 1877 9955</a>
+                                <a href="tel:{{ $setting->phone_one }}"
+                                    class="text-lg font-bold text-gray-800">{{ $setting->phone_one }}</a>
                             </div>
                         </div>
                     </div>
@@ -171,16 +129,16 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach ($services as $service)
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="{{ $service['url'] }}">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset($service['image']) }}"
-                                alt="{{ $service['alt'] }}" />
+                        <a href="{{ route('service.details', $service->slug) }}">
+                            <img class="rounded-t-lg w-full h-[250px] object-cover"
+                                src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" />
                         </a>
                         <div class="p-5 mb-5 text-center">
-                            <a href="{{ $service['url'] }}">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">{{ $service['title'] }}
+                            <a href="{{ route('service.details', $service->slug) }}">
+                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">{{ $service->title }}
                                 </h5>
                             </a>
-                            <a href="{{ $service['url'] }}"
+                            <a href="{{ route('service.details', $service->slug) }}"
                                 class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
                                 Discover More
                             </a>
@@ -226,16 +184,16 @@
             <div class="flex flex-wrap justify-center gap-8">
                 @foreach ($fleets as $fleet)
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="{{ $fleet['url'] }}">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset($fleet['image']) }}"
-                                alt="{{ $fleet['alt'] }}" />
+                        <a href="{{ route('fleet.details', $fleet->slug) }}">
+                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ Storage::url($fleet->image) }}"
+                                alt="{{ $fleet->title }}" />
                         </a>
                         <div class="p-5 mb-5 text-center">
-                            <a href="{{ $fleet['url'] }}">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">{{ $fleet['title'] }}
+                            <a href="{{ route('fleet.details', $fleet->slug) }}">
+                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">{{ $fleet->title }}
                                 </h5>
                             </a>
-                            <a href="{{ route('legacy') }}"
+                            <a href="{{ route('fleet.details', $fleet->slug) }}"
                                 class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
                                 Discover More
                             </a>
@@ -425,21 +383,21 @@
                 <div class="flex space-x-8">
                     @foreach ($blogs as $blog)
                         <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="{{ $blog['url'] }}">
-                                <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset($blog['image']) }}"
-                                    alt="{{ $blog['title'] }}" />
+                            <a href="{{ route('blog.details', $blog->slug) }}">
+                                <img class="rounded-t-lg w-full h-[250px] object-cover"
+                                    src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" />
                             </a>
                             <div class="p-5 mb-5">
                                 <div class="mb-5 flex justify-between">
-                                    <p>BY {{ $blog['author'] }}</p>
-                                    <p>{{ $blog['date'] }}</p>
+                                    <p>BY {{ $blog->author }}</p>
+                                    <p>{{ $blog->created_at->format('M d, Y') }}</p>
                                 </div>
                                 <a href="{{ $blog['url'] }}">
                                     <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">
-                                        {{ $blog['title'] }}
+                                        {{ $blog->title }}
                                     </h5>
                                 </a>
-                                <a href="{{ $blog['url'] }}"
+                                <a href="{{ route('blog.details', $blog->slug) }}"
                                     class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
                                     Read More
                                 </a>

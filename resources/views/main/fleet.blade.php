@@ -11,41 +11,6 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#2A6F97">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Alfa5 Aviation">
-    <meta property="og:description" content="Private Jet Charter">
-    <meta property="og:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Alfa5 Aviation">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:logo" content="{{ asset('images/logo-sagala.png') }}" />
-    <meta property="og:locale:alternate" content="id_ID">
-    <meta property="og:updated_time" content="{{ now()->toIso8601String() }}">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="alfa5aviation.com">
-    <meta property="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="Alfa5 Aviation">
-    <meta name="twitter:description" content="Private Jet Charter">
-    <meta name="twitter:image" content="{{ asset('images/logo-sagala.png') }}">
-    <meta name="twitter:site" content="">
-    <meta name="twitter:creator" content="">
-
-    <meta name="DC.title" content="Alfa5 Aviation">
-    <meta name="DC.creator" content="Zachran Razendra">
-    <meta name="DC.description" content="Private Jet Charter">
-    <meta name="DC.publisher" content="Alfa5 Aviation">
-    <meta name="DC.contributor" content="Zachran Razendra">
-    <meta name="DC.date" content="{{ now()->toIso8601String() }}">
-    <meta name="DC.type" content="text">
-    <meta name="DC.format" content="text/html">
-    <meta name="DC.identifier" content="{{ url()->current() }}">
-    <meta name="DC.language" content="en">
-    <meta name="DC.coverage" content="Worldwide">
-    <meta name="DC.rights" content="© Alfa5 Aviation">
-
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>Alfa5 Aviation</title>
@@ -109,28 +74,50 @@
                 </h2>
             </div>
 
-            <!-- Service Cards -->
+            <!-- Fleet Cards -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 justify-center">
-                <!-- Card -->
-                <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
-                    <!-- Image Section -->
-                    <a href="#" class="w-1/3">
-                        <img class="object-cover w-full h-[200px]" src="{{ asset('images/about.jpg') }}"
-                            alt="Private Jet Charter" />
-                    </a>
-
-                    <!-- Description Section -->
-                    <div class="w-2/3 p-6">
-                        <a href="#">
-                            <h5 class="text-xl font-bold text-gray-800 mb-2">Embraer Legacy 600</h5>
+                @forelse ($fleets as $fleet)
+                    <!-- Card -->
+                    <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
+                        <!-- Image Section -->
+                        <a href="{{ route('fleet.details', $fleet->slug) }}" class="w-1/3">
+                            <img class="object-cover w-full h-[200px]" src="{{ Storage::url($fleet->image) }}"
+                                alt="{{ $fleet->title }}" />
                         </a>
-                        <p class="text-gray-600 text-justify mb-4">
-                            At Alfa5 Aviation, we set a new standard for corporate travel with our Private Jet Charter...
-                        </p>
-                        <a href="{{ route('legacy') }}" class="text-[#1A2D73] font-semibold hover:underline">Discover
-                            More</a>
+
+                        <!-- Description Section -->
+                        <div class="w-2/3 p-6">
+                            <a href="{{ route('fleet.details', $fleet->slug) }}">
+                                <h5 class="text-xl font-bold text-gray-800 mb-2">{{ $fleet->title }}</h5>
+                            </a>
+                            <p class="text-gray-600 text-justify mb-4">
+                                {{ $fleet->description }}
+                            </p>
+                            <a href="{{ route('fleet.details', $fleet->slug) }}"
+                                class="text-[#1A2D73] font-semibold hover:underline">Discover
+                                More</a>
+                        </div>
                     </div>
-                </div>
+                @empty
+                    <!-- Card -->
+                    <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
+                        <!-- Image Section -->
+                        <a href="#" class="w-1/3">
+                            <img class="object-cover w-full h-[200px]" src="{{ asset('images/about.jpg') }}"
+                                alt="Private Jet Charter" />
+                        </a>
+                        <!-- Description Section -->
+                        <div class="w-2/3 p-6">
+                            <a href="#">
+                                <h5 class="text-xl font-bold text-gray-800 mb-2">No Data</h5>
+                            </a>
+                            <p class="text-gray-600 text-justify mb-4">
+                            </p>
+                            <a href="" class="text-[#1A2D73] font-semibold hover:underline">Discover
+                                More</a>
+                        </div>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -150,7 +137,7 @@
                 Alfa5 Aviation proudly raises the bar and exceeds the standard for luxury and corporate private jet charter
                 services. We pride ourselves on offering a professional and personalized service.
             </p>
-            <a href="#"
+            <a href="{{ route('contact') }}"
                 class="bg-[#1A2D73] text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-900 transition">
                 Request Quote
             </a>
@@ -171,189 +158,29 @@
             <!-- News Cards -->
             <div class="overflow-x-auto">
                 <div class="flex space-x-8">
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
+                    @foreach ($blogs as $blog)
+                        <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
+                            <a href="{{ route('blog.details', $blog->slug) }}">
+                                <img class="rounded-t-lg w-full h-[250px] object-cover"
+                                    src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" />
+                            </a>
+                            <div class="p-5 mb-5">
+                                <div class="mb-5 flex justify-between">
+                                    <p>BY {{ $blog->author }}</p>
+                                    <p>{{ $blog->created_at->format('M d, Y') }}</p>
+                                </div>
+                                <a href="{{ $blog['url'] }}">
+                                    <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">
+                                        {{ $blog->title }}
+                                    </h5>
+                                </a>
+                                <a href="{{ route('blog.details', $blog->slug) }}"
+                                    class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
+                                    Read More
+                                </a>
                             </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
                         </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
