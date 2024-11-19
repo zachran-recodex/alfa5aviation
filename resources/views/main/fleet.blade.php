@@ -81,7 +81,7 @@
                     <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
                         <!-- Image Section -->
                         <a href="{{ route('fleet.details', $fleet->slug) }}" class="w-1/3">
-                            <img class="object-cover w-full h-[200px]" src="{{ Storage::url($fleet->image) }}"
+                            <img class="object-cover w-full h-[200px]" src="{{ asset('storage/' . $fleet->image) }}"
                                 alt="{{ $fleet->title }}" />
                         </a>
 
@@ -162,7 +162,7 @@
                         <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('blog.details', $blog->slug) }}">
                                 <img class="rounded-t-lg w-full h-[250px] object-cover"
-                                    src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" />
+                                    src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" />
                             </a>
                             <div class="p-5 mb-5">
                                 <div class="mb-5 flex justify-between">

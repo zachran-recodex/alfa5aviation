@@ -43,7 +43,7 @@
                                             class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
                                         @if ($hero_section->image)
                                             <p class="text-gray-500 text-sm mt-1">Current Image:
-                                                <img src="{{ Storage::url($hero_section->image) }}"
+                                                <img src="{{ asset('storage/' . $hero_section->image) }}"
                                                     alt="{{ $hero_section->title }}"
                                                     class="mt-2 w-20 h-20 object-cover">
                                             </p>

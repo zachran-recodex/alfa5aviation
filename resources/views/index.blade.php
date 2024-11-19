@@ -19,7 +19,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-screen flex justify-center items-center"
-        style="background-image: url({{ Storage::url($hero_section->image) }})">
+        style="background-image: url({{ asset('storage/' . $hero_section->image) }})">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -53,7 +53,7 @@
                 @foreach ($partners as $partner)
                     <a href="{{ $partner->url }}" target="_blank"
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-                        <img src="{{ Storage::url($partner->image) }}" alt="{{ $partner->title }}"
+                        <img src="{{ asset('storage/' . $partner->image) }}" alt="{{ $partner->title }}"
                             class="mx-auto max-h-16 object-contain">
                     </a>
                 @endforeach
@@ -66,7 +66,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Image Section -->
-                <img src="{{ Storage::url($about->image) }}" alt="Private Jet Charter"
+                <img src="{{ asset('storage/' . $about->image) }}" alt="Private Jet Charter"
                     class="w-full h-[500px] object-cover rounded-lg">
 
                 <!-- Text Section -->
@@ -131,7 +131,7 @@
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                         <a href="{{ route('service.details', $service->slug) }}">
                             <img class="rounded-t-lg w-full h-[250px] object-cover"
-                                src="{{ Storage::url($service->image) }}" alt="{{ $service->title }}" />
+                                src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" />
                         </a>
                         <div class="p-5 mb-5 text-center">
                             <a href="{{ route('service.details', $service->slug) }}">
@@ -185,7 +185,7 @@
                 @foreach ($fleets as $fleet)
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
                         <a href="{{ route('fleet.details', $fleet->slug) }}">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ Storage::url($fleet->image) }}"
+                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('storage/' . $fleet->image) }}"
                                 alt="{{ $fleet->title }}" />
                         </a>
                         <div class="p-5 mb-5 text-center">
@@ -385,7 +385,7 @@
                         <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('blog.details', $blog->slug) }}">
                                 <img class="rounded-t-lg w-full h-[250px] object-cover"
-                                    src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" />
+                                    src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" />
                             </a>
                             <div class="p-5 mb-5">
                                 <div class="mb-5 flex justify-between">

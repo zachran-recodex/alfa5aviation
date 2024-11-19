@@ -36,12 +36,16 @@ class PartnerController extends Controller
 
         // Update fields with request data
         $partner->title = $request->title;
-        // Handle image upload
-        if ($request->hasFile('image')) {
-            $partner->image = $request->file('image')->store('partners', 'public');
-        }
         $partner->url = $request->url;
         $partner->status = $request->status;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/partners'), $filename);
+            $partner->image = 'partners/' . $filename;
+        }
 
         $partner->save();
 
@@ -63,16 +67,22 @@ class PartnerController extends Controller
     {
         // Update fields with request data
         $partner->title = $request->title;
+        $partner->url = $request->url;
+        $partner->status = $request->status;
+
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($partner->image) {
-                Storage::disk('public')->delete($partner->image);
+            if ($partner->image && file_exists(public_path('storage/' . $partner->image))) {
+                unlink(public_path('storage/' . $partner->image));
             }
-            $partner->image = $request->file('image')->store('partners', 'public');
+
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/partners'), $filename);
+            $partner->image = 'partners/' . $filename;
         }
-        $partner->url = $request->url;
-        $partner->status = $request->status;
 
         $partner->save();
 
@@ -84,9 +94,9 @@ class PartnerController extends Controller
      */
     public function destroy(Partner $partner)
     {
-        // Delete images from storage if they exist
-        if ($partner->image) {
-            Storage::disk('public')->delete($partner->image);
+        // Delete image from storage if exists
+        if ($partner->image && file_exists(public_path('storage/' . $partner->image))) {
+            unlink(public_path('storage/' . $partner->image));
         }
 
         $partner->delete();

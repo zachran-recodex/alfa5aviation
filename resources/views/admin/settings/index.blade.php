@@ -21,7 +21,8 @@
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                                 @if ($setting && $setting->logo)
-                                    <img src="{{ Storage::url($setting->logo) }}" alt="Logo" class="mt-2 w-32">
+                                    <img src="{{ asset('storage/' . $setting->logo) }}" alt="Logo"
+                                        class="mt-2 w-32">
                                 @endif
                             </div>
 
@@ -33,7 +34,8 @@
                                     <span class="text-red-500 text-sm">{{ $message }}</span>
                                 @enderror
                                 @if ($setting && $setting->favicon)
-                                    <img src="{{ Storage::url($setting->favicon) }}" alt="Favicon" class="mt-2 w-32">
+                                    <img src="{{ asset('storage/' . $setting->favicon) }}" alt="Favicon"
+                                        class="mt-2 w-32">
                                 @endif
                             </div>
                         </div>

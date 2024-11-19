@@ -81,7 +81,7 @@
                     <div class="flex flex-row items-center border border-gray-300 rounded-lg overflow-hidden shadow-md">
                         <!-- Image Section -->
                         <a href="{{ route('service.details', $service->slug) }}" class="w-1/3">
-                            <img class="object-cover w-full h-[250px]" src="{{ Storage::url($service->image) }}"
+                            <img class="object-cover w-full h-[250px]" src="{{ asset('storage/' . $service->image) }}"
                                 alt="{{ $service->title }}" />
                         </a>
 

@@ -26,17 +26,17 @@ class AboutController extends Controller
         $about = About::first() ?? new About();
 
         $about->title = $request->title;
-        // Handle image uploads
-        if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($about->image) {
-                Storage::disk('public')->delete($about->image);
-            }
-            $about->image = $request->file('image')->store('abouts', 'public');
-        }
         $about->description = $request->description;
         $about->vision = $request->vision;
         $about->mission = $request->mission;
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/about'), $filename);
+            $about->image = 'about/' . $filename;
+        }
 
         // Save the about record
         $about->save();

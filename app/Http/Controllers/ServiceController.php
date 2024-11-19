@@ -38,14 +38,16 @@ class ServiceController extends Controller
         // Update fields with request data
         $service->title = $request->title;
         $service->slug = Str::slug($request->title);
+        $service->description = $request->description;
+        $service->status = $request->status;
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $service->image = $request->file('image')->store('services', 'public');
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/services'), $filename);
+            $service->image = 'services/' . $filename;
         }
-
-        $service->description = $request->description;
-        $service->status = $request->status;
 
         $service->save();
 
@@ -68,18 +70,22 @@ class ServiceController extends Controller
         // Update fields with request data
         $service->title = $request->title;
         $service->slug = Str::slug($request->title);
+        $service->description = $request->description;
+        $service->status = $request->status;
 
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($service->image) {
-                Storage::disk('public')->delete($service->image);
+            if ($service->image && file_exists(public_path('storage/' . $service->image))) {
+                unlink(public_path('storage/' . $service->image));
             }
-            $service->image = $request->file('image')->store('services', 'public');
-        }
 
-        $service->description = $request->description;
-        $service->status = $request->status;
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/services'), $filename);
+            $service->image = 'services/' . $filename;
+        }
 
         $service->save();
 
@@ -91,9 +97,9 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        // Delete images from storage if they exist
-        if ($service->image) {
-            Storage::disk('public')->delete($service->image);
+        // Delete image from storage if exists
+        if ($service->image && file_exists(public_path('storage/' . $service->image))) {
+            unlink(public_path('storage/' . $service->image));
         }
 
         $service->delete();

@@ -43,7 +43,7 @@
                                             class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
                                         @if ($partner->image)
                                             <p class="text-gray-500 text-sm mt-1">Current Image: <img
-                                                    src="{{ Storage::url($partner->image) }}"
+                                                    src="{{ asset('storage/' . $partner->image) }}"
                                                     alt="{{ $partner->title }}" class="mt-2 w-20 h-20 object-cover">
                                             </p>
                                         @endif

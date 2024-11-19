@@ -19,7 +19,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-[50vh] flex justify-center items-center"
-        style="background-image: url({{ Storage::url($service->image) }})">
+        style="background-image: url({{ asset('storage/' . $service->image) }})">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -77,7 +77,7 @@
 
                 <!-- Main Service Content -->
                 <div class="lg:w-3/4 space-y-6">
-                    <img class="w-full h-[500px] object-cover rounded-lg" src="{{ Storage::url($service->image) }}"
+                    <img class="w-full h-[500px] object-cover rounded-lg" src="{{ asset('storage/' . $service->image) }}"
                         alt="{{ $service->title }}">
                     <div>
                         <h3 class="text-2xl font-bold mb-4">Private Jet Charter</h3>
@@ -96,7 +96,7 @@
                         @foreach ($services as $service)
                             <a href="{{ route('service.details', $service->slug) }}"
                                 class="bg-gray-200 shadow p-2 rounded flex flex-row items-center space-x-4">
-                                <img class="w-16 h-16 object-cover rounded" src="{{ Storage::url($service->image) }}"
+                                <img class="w-16 h-16 object-cover rounded" src="{{ asset('storage/' . $service->image) }}"
                                     alt="{{ $service->title }}">
                                 <h6 class="text-md">{{ $service->title }}</h6>
                             </a>

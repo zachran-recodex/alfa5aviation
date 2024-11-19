@@ -34,8 +34,8 @@
                                             <td class="px-6 py-3">{{ $blog->title }}</td>
                                             <td class="px-6 py-3">{{ $blog->author }}</td>
                                             <td class="px-6 py-3">
-                                                <img src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}"
-                                                    class="w-16 h-16 object-cover">
+                                                <img src="{{ asset('storage/' . $blog->image) }}"
+                                                    alt="{{ $blog->title }}" class="w-16 h-16 object-cover">
                                             </td>
                                             <td class="px-6 py-3">{{ ucfirst($blog->status) }}</td>
                                             <td class="px-6 py-3 text-center">

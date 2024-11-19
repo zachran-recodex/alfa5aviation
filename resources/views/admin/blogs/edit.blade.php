@@ -66,7 +66,7 @@
                                         <input type="file" name="image" id="image" accept="image/*"
                                             class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
                                         <p class="text-gray-500 text-sm mt-1">Current Image: <img
-                                                src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}"
+                                                src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}"
                                                 class="mt-2 w-20 h-20 object-cover"></p>
                                         @error('image')
                                             <span class="text-red-600 text-sm">{{ $message }}</span>

@@ -32,7 +32,7 @@
                                         <tr class="border-b border-gray-200 hover:bg-gray-50 transition">
                                             <td class="px-6 py-3">{{ $partner->title }}</td>
                                             <td class="px-6 py-3">
-                                                <img src="{{ Storage::url($partner->image) }}"
+                                                <img src="{{ asset('storage/' . $partner->image) }}"
                                                     alt="{{ $partner->title }}" class="w-16 h-16 object-cover">
                                             </td>
                                             <td class="px-6 py-3">{{ ucfirst($partner->status) }}</td>

@@ -68,7 +68,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <img src="{{ asset('images/about.jpg') }}" alt="Private Jet Charter"
                         class="h-full object-cover rounded-lg shadow-md mt-8">
-                    <img src="{{ Storage::url($about->image) }}" alt="Private Jet Experience"
+                    <img src="{{ asset('storage/' . $about->image) }}" alt="Private Jet Experience"
                         class="h-full object-cover rounded-lg shadow-md mb-8">
                 </div>
 
@@ -154,7 +154,7 @@
                 @foreach ($partners as $partner)
                     <a href="{{ $partner->url }}" target="_blank"
                         class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
-                        <img src="{{ Storage::url($partner->image) }}" alt="{{ $partner->title }}"
+                        <img src="{{ asset('storage/' . $partner->image) }}" alt="{{ $partner->title }}"
                             class="mx-auto max-h-16 object-contain">
                     </a>
                 @endforeach
@@ -202,7 +202,7 @@
                         <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
                             <a href="{{ route('blog.details', $blog->slug) }}">
                                 <img class="rounded-t-lg w-full h-[250px] object-cover"
-                                    src="{{ Storage::url($blog->image) }}" alt="{{ $blog->title }}" />
+                                    src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" />
                             </a>
                             <div class="p-5 mb-5">
                                 <div class="mb-5 flex justify-between">

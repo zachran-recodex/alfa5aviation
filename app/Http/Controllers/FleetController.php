@@ -55,9 +55,12 @@ class FleetController extends Controller
         $fleet->landing_distance = $request->landing_distance;
         $fleet->status = $request->status;
 
-        // Handle image upload jika ada
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $fleet->image = $request->file('image')->store('fleets', 'public');
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/fleets'), $filename);
+            $fleet->image = 'fleets/' . $filename;
         }
 
         // Simpan data fleet ke database
@@ -97,13 +100,18 @@ class FleetController extends Controller
         $fleet->landing_distance = $request->landing_distance;
         $fleet->status = $request->status;
 
-        // Handle image upload jika ada file baru
+        // Handle image upload
         if ($request->hasFile('image')) {
-            // Hapus gambar lama jika ada
-            if ($fleet->image) {
-                Storage::disk('public')->delete($fleet->image);
+            // Delete old image if exists
+            if ($fleet->image && file_exists(public_path('storage/' . $fleet->image))) {
+                unlink(public_path('storage/' . $fleet->image));
             }
-            $fleet->image = $request->file('image')->store('fleets', 'public');
+
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/fleets'), $filename);
+            $fleet->image = 'fleets/' . $filename;
         }
 
         // Simpan perubahan
@@ -117,9 +125,9 @@ class FleetController extends Controller
      */
     public function destroy(Fleet $fleet)
     {
-        // Hapus gambar jika ada
-        if ($fleet->image) {
-            Storage::disk('public')->delete($fleet->image);
+        // Delete image from storage if exists
+        if ($fleet->image && file_exists(public_path('storage/' . $fleet->image))) {
+            unlink(public_path('storage/' . $fleet->image));
         }
 
         // Hapus data fleet

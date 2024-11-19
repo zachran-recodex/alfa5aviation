@@ -36,11 +36,15 @@ class HeroSectionController extends Controller
 
         // Update fields with request data
         $hero_section->title = $request->title;
+        $hero_section->status = $request->status;
+
         // Handle image upload
         if ($request->hasFile('image')) {
-            $hero_section->image = $request->file('image')->store('hero_sections', 'public');
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/hero_sections'), $filename);
+            $hero_section->image = 'hero_sections/' . $filename;
         }
-        $hero_section->status = $request->status;
 
         $hero_section->save();
 
@@ -62,15 +66,21 @@ class HeroSectionController extends Controller
     {
         // Update fields with request data
         $hero_section->title = $request->title;
+        $hero_section->status = $request->status;
+
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($hero_section->image) {
-                Storage::disk('public')->delete($hero_section->image);
+            if ($hero_section->image && file_exists(public_path('storage/' . $hero_section->image))) {
+                unlink(public_path('storage/' . $hero_section->image));
             }
-            $hero_section->image = $request->file('image')->store('hero_sections', 'public');
+
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/hero_sections'), $filename);
+            $hero_section->image = 'hero_sections/' . $filename;
         }
-        $hero_section->status = $request->status;
 
         $hero_section->save();
 
@@ -82,9 +92,9 @@ class HeroSectionController extends Controller
      */
     public function destroy(HeroSection $hero_section)
     {
-        // Delete images from storage if they exist
-        if ($hero_section->image) {
-            Storage::disk('public')->delete($hero_section->image);
+        // Delete image from storage if exists
+        if ($hero_section->image && file_exists(public_path('storage/' . $hero_section->image))) {
+            unlink(public_path('storage/' . $hero_section->image));
         }
 
         $hero_section->delete();

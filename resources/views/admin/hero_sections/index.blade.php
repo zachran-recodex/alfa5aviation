@@ -32,7 +32,7 @@
                                         <tr class="border-b border-gray-200 hover:bg-gray-50 transition">
                                             <td class="px-6 py-3">{{ $hero_section->title }}</td>
                                             <td class="px-6 py-3">
-                                                <img src="{{ Storage::url($hero_section->image) }}"
+                                                <img src="{{ asset('storage/' . $hero_section->image) }}"
                                                     alt="{{ $hero_section->title }}" class="w-16 h-16 object-cover">
                                             </td>
                                             <td class="px-6 py-3">{{ ucfirst($hero_section->status) }}</td>

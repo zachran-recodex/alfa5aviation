@@ -44,7 +44,10 @@ class BlogController extends Controller
 
         // Handle image upload
         if ($request->hasFile('image')) {
-            $blog->image = $request->file('image')->store('blogs', 'public');
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/blogs'), $filename);
+            $blog->image = 'blogs/' . $filename;
         }
 
         $blog->save();
@@ -75,10 +78,15 @@ class BlogController extends Controller
         // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image if exists
-            if ($blog->image) {
-                Storage::disk('public')->delete($blog->image);
+            if ($blog->image && file_exists(public_path('storage/' . $blog->image))) {
+                unlink(public_path('storage/' . $blog->image));
             }
-            $blog->image = $request->file('image')->store('blogs', 'public');
+
+            // Upload new image
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('storage/blogs'), $filename);
+            $blog->image = 'blogs/' . $filename;
         }
 
         $blog->save();
@@ -91,9 +99,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        // Delete images from storage if they exist
-        if ($blog->image) {
-            Storage::disk('public')->delete($blog->image);
+        // Delete image from storage if exists
+        if ($blog->image && file_exists(public_path('storage/' . $blog->image))) {
+            unlink(public_path('storage/' . $blog->image));
         }
 
         $blog->delete();
