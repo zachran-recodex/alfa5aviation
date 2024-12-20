@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('page_setups', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('page')->nullable();
             $table->string('slug')->nullable();
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();

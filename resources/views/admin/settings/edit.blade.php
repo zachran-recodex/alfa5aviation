@@ -19,7 +19,7 @@
                 <h5 class="card-title text-lg mb-0">Setting</h5>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.settings.store') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
+                <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
                     @csrf
 
                     <div class="col-span-6">

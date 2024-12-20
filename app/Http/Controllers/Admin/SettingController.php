@@ -15,7 +15,7 @@ class SettingController extends Controller
         return view('admin.settings.edit', compact('setting'));
     }
 
-    public function store(SettingStoreRequest $request)
+    public function update(SettingStoreRequest $request)
     {
         $setting = Setting::first() ?? new Setting();
 
