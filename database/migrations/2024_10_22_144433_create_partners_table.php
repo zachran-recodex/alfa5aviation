@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('partners', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('image');
             $table->string('url')->nullable();
             $table->boolean('status')->default(true);

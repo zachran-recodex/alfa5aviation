@@ -1,126 +1,90 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Edit Blog') }}
-            </h2>
+<x-layout.admin>
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+        <h6 class="font-semibold mb-0 dark:text-white">Blog</h6>
+        <ul class="flex items-center gap-[6px]">
+            <li class="font-medium">
+                <a href="{{ route('admin.dashboard.index') }}" class="flex items-center gap-2 hover:text-primary-600 dark:text-white">
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                    Dashboard
+                </a>
+            </li>
+            <li class="dark:text-white">-</li>
+            <li class="font-medium dark:text-white">Blog - Edit</li>
+        </ul>
+    </div>
 
-            <a href="{{ route('admin.blogs.index') }}"
-                class="md:flex bg-alfa5-500 hover:bg-alfa5-600 px-6 py-2 rounded-md hidden items-center gap-3 text-sm font-semibold">
-                <p class="text-sm text-white font-medium text-default-700">BACK</p>
-            </a>
-        </div>
-    </x-slot>
+    <div class="col-span-12">
+        <div class="card border-0 overflow-hidden">
+            <div class="card-header border-b border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-700 py-4 px-6 flex items-center flex-wrap gap-3 justify-between">
+                <h5 class="card-title text-lg mb-0">Edit Blog</h5>
+                <a href="{{ route('admin.blogs.index') }}" class="btn btn-primary text-sm btn-sm px-3 py-3 rounded-lg flex items-center gap-2">
+                    <iconify-icon icon="ion:arrow-back-outline" class="icon text-xl line-height-1"></iconify-icon>
+                    BACK
+                </a>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('admin.blogs.update', $blog) }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
+                    @csrf
+                    @method('PUT')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="overflow-x-auto custom-scroll">
-                    <div class="min-w-full inline-block align-middle whitespace-nowrap">
-                        <div class="overflow-hidden">
-                            <form action="{{ route('admin.blogs.update', $blog) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-
-                                <div class="p-6">
-                                    <div class="mb-4">
-                                        <label for="title"
-                                            class="block text-sm font-medium text-gray-700">Title</label>
-                                        <input type="text" name="title" id="title"
-                                            value="{{ old('title', $blog->title) }}"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required oninput="updateSlug()">
-                                        @error('title')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="slug"
-                                            class="block text-sm font-medium text-gray-700">Slug</label>
-                                        <input type="text" name="slug" id="slug"
-                                            value="{{ old('slug', $blog->slug) }}"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required readonly>
-                                        @error('slug')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="author"
-                                            class="block text-sm font-medium text-gray-700">Author</label>
-                                        <input type="text" name="author" id="author"
-                                            value="{{ old('author', $blog->author) }}"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required>
-                                        @error('author')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="image"
-                                            class="block text-sm font-medium text-gray-700">Image</label>
-                                        <input type="file" name="image" id="image" accept="image/*"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
-                                        <p class="text-gray-500 text-sm mt-1">Current Image: <img
-                                                src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}"
-                                                class="mt-2 w-20 h-20 object-cover"></p>
-                                        @error('image')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="description"
-                                            class="block text-sm font-medium text-gray-700">Description</label>
-                                        <textarea name="description" id="description" rows="4"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200" required>{{ old('description', $blog->description) }}</textarea>
-                                        @error('description')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="status"
-                                            class="block text-sm font-medium text-gray-700">Status</label>
-                                        <select name="status" id="status"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required>
-                                            <option value="active" {{ $blog->status === 'active' ? 'selected' : '' }}>
-                                                Active
-                                            </option>
-                                            <option value="inactive"
-                                                {{ $blog->status === 'inactive' ? 'selected' : '' }}>
-                                                Inactive</option>
-                                        </select>
-                                        @error('status')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="flex justify-end">
-                                        <button type="submit"
-                                            class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
-                                            UPDATE
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="col-span-6">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" id="title" name="title" value="{{ old('title', $blog->title) }}" class="form-control border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>
+                        @error('title')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
                     </div>
-                </div>
+
+                    <div class="col-span-6">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" id="author" name="author" value="{{ old('author', $blog->author) }}" class="form-control border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>
+                        @error('author')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-span-6">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" name="image" id="image" accept="image/*" class="mt-1 border border-neutral-200 dark:border-neutral-600 w-full rounded-lg">
+                        @error('image')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-span-6">
+                        <label for="current-image" class="form-label">Current Image</label>
+                        <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" class="border rounded-lg w-full h-32 object-cover">
+                    </div>
+
+                    <div class="col-span-12">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10" class="form-control border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>{{ old('description', $blog->description) }}</textarea>
+                        @error('description')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="col-span-6 flex items-center">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <!-- Hidden input for status -->
+                            <input type="hidden" name="status" value="0"> <!-- default to 0 (inactive) -->
+
+                            <!-- Checkbox for status -->
+                            <input type="checkbox" id="status" name="status" value="1" class="sr-only peer" {{ old('status', $blog->status) ? 'checked' : '' }}>
+                            <span class="relative w-11 h-6 bg-gray-400 peer-focus:outline-none rounded-full peer dark:bg-gray-500 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary-600"></span>
+                            <span class="line-height-1 font-medium ms-3 peer-checked:text-primary-600 text-md text-gray-600 dark:text-gray-300">
+                                Status
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="col-span-6 flex justify-end">
+                        <button type="submit" class="btn px-3 py-3 text-sm btn-sm bg-green-500 text-white rounded-lg flex items-center hover:bg-green-600 transition">
+                            UPDATE
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
-    <script>
-        function updateSlug() {
-            const title = document.getElementById('title').value;
-            const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-            document.getElementById('slug').value = slug;
-        }
-    </script>
-</x-app-layout>
+</x-layout.admin>

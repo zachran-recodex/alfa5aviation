@@ -7,14 +7,14 @@ use App\Services\AppConfigService;
 
 class SettingComposer
 {
-    protected $appConfigService;
+    protected AppConfigService $appConfigService;
 
     public function __construct(AppConfigService $appConfigService)
     {
         $this->appConfigService = $appConfigService;
     }
 
-    public function compose(View $view)
+    public function compose(View $view): void
     {
         $view->with([
             'setting' => $this->appConfigService->getSetting(),

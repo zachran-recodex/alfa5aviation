@@ -1,99 +1,53 @@
-<x-app-layout>
-    <x-slot name="header">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Create Service') }}
-            </h2>
+<x-layout.admin>
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+        <h6 class="font-semibold mb-0 dark:text-white">Service</h6>
+        <ul class="flex items-center gap-[6px]">
+            <li class="font-medium">
+                <a href="{{ route('admin.dashboard.index') }}" class="flex items-center gap-2 hover:text-primary-600 dark:text-white">
+                    <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                    Dashboard
+                </a>
+            </li>
+            <li class="dark:text-white">-</li>
+            <li class="font-medium dark:text-white">Service - Create</li>
+        </ul>
+    </div>
 
-            <a href="{{ route('admin.services.index') }}"
-                class="md:flex bg-alfa5-500 hover:bg-alfa5-600 px-6 py-2 rounded-md hidden items-center gap-3 text-sm font-semibold">
-                <p class="text-sm text-white font-medium text-default-700">BACK</p>
-            </a>
-        </div>
-    </x-slot>
+    <div class="col-span-12">
+        <div class="card border-0 overflow-hidden">
+            <div class="card-header border-b border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-700 py-4 px-6 flex items-center flex-wrap gap-3 justify-between">
+                <h5 class="card-title text-lg mb-0">Create Service</h5>
+                <a href="{{ route('admin.services.index') }}" class="btn btn-primary text-sm btn-sm px-3 py-3 rounded-lg flex items-center gap-2">
+                    <iconify-icon icon="ion:arrow-back-outline" class="icon text-xl line-height-1"></iconify-icon>
+                    BACK
+                </a>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
+                    @csrf
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="overflow-x-auto custom-scroll">
-                    <div class="min-w-full inline-block align-middle whitespace-nowrap">
-                        <div class="overflow-hidden">
-                            <form action="{{ route('admin.services.store') }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="p-6">
-                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <div class="mb-4">
-                                            <label for="title"
-                                                class="block text-sm font-medium text-gray-700">Title</label>
-                                            <input type="text" name="title" id="title"
-                                                class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                                required>
-                                            @error('title')
-                                                <span class="text-red-600 text-sm">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-
-                                        <div class="mb-4">
-                                            <label for="slug"
-                                                class="block text-sm font-medium text-gray-700">Slug</label>
-                                            <input type="text" name="slug" id="slug"
-                                                class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                                required>
-                                            @error('slug')
-                                                <span class="text-red-600 text-sm">{{ $message }}</span>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="description"
-                                            class="block text-sm font-medium text-gray-700">Description</label>
-                                        <textarea name="description" id="description" rows="4"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200" required></textarea>
-                                        @error('description')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="image"
-                                            class="block text-sm font-medium text-gray-700">Image</label>
-                                        <input type="file" name="image" id="image" accept="image/*"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required>
-                                        @error('image')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-4">
-                                        <label for="status"
-                                            class="block text-sm font-medium text-gray-700">Status</label>
-                                        <select name="status" id="status"
-                                            class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
-                                            required>
-                                            <option value="active">Active</option>
-                                            <option value="inactive">Inactive</option>
-                                        </select>
-                                        @error('status')
-                                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="flex justify-end">
-                                        <button type="submit"
-                                            class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
-                                            CREATE
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="col-span-12">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" id="title" name="title" class="form-control border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>
                     </div>
-                </div>
+
+                    <div class="col-span-12">
+                        <label for="image" class="form-label" >Image</label>
+                        <input type="file" id="image" name="image" accept="image/*" class="border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>
+                    </div>
+
+                    <div class="col-span-12">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10" class="form-control border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required></textarea>
+                    </div>
+
+                    <div class="col-span-12 flex justify-end">
+                        <button type="submit" class="btn px-3 py-3 text-sm btn-sm bg-green-500 text-white rounded-lg flex items-center hover:bg-green-600 transition">
+                            CREATE
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-layout.admin>

@@ -1,47 +1,55 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<x-layout.auth>
+    <section class="bg-white dark:bg-dark-2 flex flex-wrap min-h-[100vh]">
+        <div class="lg:w-1/2 lg:block hidden">
+            <div class="flex items-center flex-col h-full justify-center">
+                <img class="h-screen w-full" src="{{ asset('/images/discover-bg.jpg') }}" alt="image">
+            </div>
         </div>
+        <div class="lg:w-1/2 py-8 px-6 flex flex-col justify-center">
+            <div class="lg:max-w-[464px] mx-auto w-full">
+                <div>
+                    <a href="{{ route('home') }}" class="mb-2.5 max-w-[290px]">
+                        <img src="{{ asset('/images/logo-sagala-second.png') }}" alt="image">
+                    </a>
+                    <h4 class="mb-3">Login to your Account</h4>
+                    <p class="mb-8 text-secondary-light text-lg">Welcome back! please enter your detail</p>
+                </div>
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+                    <div class="icon-field mb-4 relative">
+                        <span class="absolute start-4 top-1/2 -translate-y-1/2 pointer-events-none flex text-xl">
+                            <iconify-icon icon="mage:email"></iconify-icon>
+                        </span>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username" placeholder="Email" class="form-control h-[56px] ps-11 border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl">
+                    </div>
+                    <div class="relative mb-5">
+                        <div class="icon-field">
+                            <span class="absolute start-4 top-1/2 -translate-y-1/2 pointer-events-none flex text-xl">
+                                <iconify-icon icon="solar:lock-password-outline"></iconify-icon>
+                            </span>
+                            <input type="password" id="password" name="password" value="{{ old('password') }}" placeholder="Password" class="form-control h-[56px] ps-11 border-neutral-300 bg-neutral-50 dark:bg-dark-2 rounded-xl">
+                        </div>
+                        <span class="toggle-password ri-eye-line cursor-pointer absolute end-0 top-1/2 -translate-y-1/2 me-4 text-secondary-light" data-toggle="#your-password"></span>
+                    </div>
+                    <div class="mt-7">
+                        <div class="flex justify-between gap-2">
+                            <div class="flex items-center">
+                                <input type="checkbox" id="remember_me" name="remember" value="" class="form-check-input border border-neutral-300">
+                                <label class="ps-2" for="remember_me">Remember me </label>
+                            </div>
+                            @if(Route::has('password.request'))
+                                <a href="{{ route('password.request') }}" class="text-primary-600 font-medium hover:underline">
+                                    Forgot Password?
+                                </a>
+                            @endif
+                        </div>
+                    </div>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+                    <button type="submit" class="btn btn-primary justify-center text-sm btn-sm px-3 py-4 w-full rounded-xl mt-8">Login</button>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </form>
+            </div>
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+</x-layout.auth>

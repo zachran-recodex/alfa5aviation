@@ -12,26 +12,9 @@ class HeroSectionSeeder extends Seeder
      */
     public function run(): void
     {
-        $heroSections = [
-            [
-                'title' => 'Private Jet Charter',
-                'image' => 'hero-sections/service1.jpg',
-                'status' => true,
-            ],
-            [
-                'title' => 'Private Jet Yow',
-                'image' => 'hero-sections/service1.jpg',
-                'status' => true,
-            ],
-            [
-                'title' => 'Private Jet Anjay',
-                'image' => 'hero-sections/service1.jpg',
-                'status' => true,
-            ],
-        ];
-
-        foreach ($heroSections as $heroSection) {
-            HeroSection::create($heroSection);
-        }
+        HeroSection::create([
+            'title' => 'Alfa5 Aviation',
+            'image' => 'hero.jpg',
+        ]);
     }
 }

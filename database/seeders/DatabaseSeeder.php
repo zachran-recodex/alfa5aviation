@@ -14,11 +14,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             RolePermissionSeeder::class,
             ServiceSeeder::class,
-            HeroSectionSeeder::class,
             PartnerSeeder::class,
             SettingSeeder::class,
             PageSetupSeeder::class,
             AboutSeeder::class,
+            HeroSectionSeeder::class,
         ]);
     }
 }

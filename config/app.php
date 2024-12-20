@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Alfa5 Aviation'),
+    'name' => env('APP_NAME', 'PT. Alfalima Cakrawala Indonesia'),
 
     /*
     |--------------------------------------------------------------------------

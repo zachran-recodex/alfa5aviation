@@ -14,18 +14,21 @@ class PartnerSeeder extends Seeder
     {
         $partners = [
             [
-                'image' => 'partners/service1.jpg',
+                'title' => 'Berlian Flight Support',
+                'image' => 'service1.jpg',
                 'url' => 'https://berlianflightsupport.com',
                 'status' => true,
             ],
             [
-                'image' => 'partners/service1.jpg',
+                'title' => 'Berlima Inflight Catering',
+                'image' => 'service1.jpg',
                 'url' => 'https://b5inflightcatering.com',
                 'status' => true,
             ],
             [
-                'image' => 'partners/service1.jpg',
-                'url' => 'https://alfa5satu.id',
+                'title' => 'Alfalima Satu',
+                'image' => 'service1.jpg',
+                'url' => 'https://alfalimasatu.id',
                 'status' => true,
             ],
         ];

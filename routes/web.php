@@ -1,18 +1,18 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FleetController;
+use App\Http\Controllers\Admin\HeroSectionController;
+use App\Http\Controllers\Admin\PageSetupController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\FleetController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PartnerController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\PageSetupController;
-use App\Http\Controllers\HeroSectionController;
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::post('/booking', [MainController::class, 'bookFlight'])->name('booking.submit');
@@ -29,16 +29,15 @@ Route::get('/blog/{slug}', [MainController::class, 'blog'])->name('blog.details'
 
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::prefix('admin')->name('admin.')->group(function (){
+
+        Route::resource('/dashboard', DashboardController::class);
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::middleware('can:manage abouts')->group(function () {
             Route::resource('abouts', AboutController::class);
