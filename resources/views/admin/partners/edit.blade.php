@@ -9,22 +9,23 @@
                 </a>
             </li>
             <li class="dark:text-white">-</li>
-            <li class="font-medium dark:text-white">Partner - Create</li>
+            <li class="font-medium dark:text-white">Partner - Edit</li>
         </ul>
     </div>
 
     <div class="col-span-12">
         <div class="card border-0 overflow-hidden">
             <div class="card-header border-b border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-700 py-4 px-6 flex items-center flex-wrap gap-3 justify-between">
-                <h5 class="card-title text-lg mb-0">Create Partner</h5>
+                <h5 class="card-title text-lg mb-0">Edit Partner</h5>
                 <a href="{{ route('admin.partners.index') }}" class="btn btn-primary text-sm btn-sm px-3 py-3 rounded-lg flex items-center gap-2">
                     <iconify-icon icon="ion:arrow-back-outline" class="icon text-xl line-height-1"></iconify-icon>
                     BACK
                 </a>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.partners.store') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
+                <form action="{{ route('admin.partners.update', $partner) }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
                     @csrf
+                    @method('PUT')
 
                     <div class="col-span-6">
                         <label for="title" class="form-label" >Title</label>
@@ -44,7 +45,7 @@
 
                     <div class="col-span-6">
                         <label for="image" class="form-label" >Image</label>
-                        <input type="file" id="image" name="image" accept="image/*" class="border border-neutral-200 dark:border-neutral-600 w-full rounded-lg" required>
+                        <input type="file" id="image" name="image" accept="image/*" class="border border-neutral-200 dark:border-neutral-600 w-full rounded-lg">
                         @error('image')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                         @enderror
@@ -71,7 +72,7 @@
 
                     <div class="col-span-6 flex justify-end">
                         <button type="submit" class="btn px-3 py-3 text-sm btn-sm bg-green-500 text-white rounded-lg flex items-center hover:bg-green-600 transition">
-                            CREATE
+                            UPDATE
                         </button>
                     </div>
                 </form>

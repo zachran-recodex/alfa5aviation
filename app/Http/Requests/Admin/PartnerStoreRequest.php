@@ -6,12 +6,16 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PartnerStoreRequest extends FormRequest
 {
+    public function authorize(): bool
+    {
+        return true;
+    }
+
     public function rules(): array
     {
         return [
-            'title'  => ['required', 'string', 'max:255'],
-            'url'    => ['required', 'url', 'max:255'],
-            'image'  => ['nullable', 'image', 'max:2048'], // Max size: 2MB
+            'title' => 'required|string|max:255',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ];
     }
 }
