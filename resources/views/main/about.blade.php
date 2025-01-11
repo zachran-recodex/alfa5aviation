@@ -11,7 +11,7 @@
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>{{ $pageSetups['about']->title }}</title>
+    <title>Alfa5 Aviation</title>
 @endsection
 
 <x-main-layout>
