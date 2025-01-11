@@ -23,13 +23,14 @@
 
                 <form action="{{ route('dashboard.about.manage') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
                     @csrf
+                    @method('PUT')
 
                     <div class="col-span-6">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" id="title" name="title" class="form-input" value="{{ old('title', $about->title) }}" required />
 
                         <label for="image" class="form-label pt-2">Image</label>
-                        <input id="image" type="file" class="form-input-file" />
+                        <input type="file" id="image" name="image" class="form-input-file" />
                     </div>
 
                     <div class="col-span-6">
@@ -39,7 +40,10 @@
 
                     <div class="col-span-12">
                         <label for="description" class="form-label">Description</label>
-                        <textarea id="description" name="description" class="form-input" rows="5">{{ old('description', $about->description) }}</textarea>
+                        <div id="editor-description" class="form-input" style="height: 150px;">
+                            {!! old('description', $about->description) !!}
+                        </div>
+                        <input type="hidden" id="description" name="description" value="{{ old('description', $about->description) }}">
                     </div>
 
                     <div class="col-span-6">
@@ -63,4 +67,31 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Inisialisasi Quill
+            var quill = new Quill('#editor-description', {
+                theme: 'snow',
+                placeholder: 'Enter the description here...',
+                modules: {
+                    toolbar: [
+                        [{ header: [1, 2, false] }],
+                        ['bold', 'italic', 'underline'],
+                        ['link', 'blockquote', 'code-block'],
+                        [{ list: 'ordered' }, { list: 'bullet' }],
+                        ['clean'] // Clear formatting
+                    ]
+                }
+            });
+
+            // Sinkronisasi konten Quill dengan input hidden saat form dikirim
+            var descriptionInput = document.querySelector('#description');
+            var form = document.querySelector('form');
+
+            form.addEventListener('submit', function () {
+                descriptionInput.value = quill.root.innerHTML;
+            });
+        });
+    </script>
 </x-dashboard-layout>

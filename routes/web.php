@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
         Route::get('/about', [AboutController::class, 'index'])->name('about.index');
-        Route::put('/about/manage', [AboutController::class, 'manage'])->name('about.manage');
+        Route::put('/about', [AboutController::class, 'manage'])->name('about.manage');
 
         Route::resource('blog', BlogController::class);
 

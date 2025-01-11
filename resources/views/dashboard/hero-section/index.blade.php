@@ -29,7 +29,7 @@
                         <input type="text" id="title" name="title" class="form-input" value="{{ old('title', $heroSection->title) }}" required />
 
                         <label for="image" class="form-label pt-2">Image</label>
-                        <input id="image" type="file" class="form-input-file" />
+                        <input type="file" id="image" name="image" class="form-input-file" />
                     </div>
 
                     <div class="col-span-6">

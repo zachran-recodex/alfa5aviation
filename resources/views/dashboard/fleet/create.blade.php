@@ -40,7 +40,7 @@
                     <!-- Image -->
                     <div class="col-span-6">
                         <label for="image" class="form-label">Image</label>
-                        <input id="image" type="file" name="image" class="form-input-file" />
+                        <input type="file" id="image" name="image" name="image" class="form-input-file" />
                         @error('image')
                         <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                         @enderror
