@@ -46,7 +46,11 @@ class ServiceController extends Controller
 
         Service::create($validated);
 
-        return redirect()->route('dashboard.service.index');
+        return redirect()->route('dashboard.service.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Service created successfully.',
+        ]);
     }
 
     /**
@@ -77,7 +81,11 @@ class ServiceController extends Controller
 
         $service->update($validated);
 
-        return redirect()->route('dashboard.service.index');
+        return redirect()->route('dashboard.service.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Service updated successfully.',
+        ]);
     }
 
     /**
@@ -91,6 +99,10 @@ class ServiceController extends Controller
 
         $service->delete();
 
-        return redirect()->route('dashboard.service.index');
+        return redirect()->route('dashboard.service.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Partner deleted successfully.',
+        ]);
     }
 }

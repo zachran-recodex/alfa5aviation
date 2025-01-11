@@ -27,7 +27,11 @@ class SettingController extends Controller
         $setting = Setting::first();
 
         if (!$setting) {
-            return redirect()->route('dashboard')->with('error', 'Setting not found.');
+            return redirect()->route('dashboard')->with('notification', [
+                'variant' => 'success',
+                'title' => 'Success!',
+                'message' => 'Setting not found.',
+            ]);
         }
 
         $validated = $request->validated();
@@ -48,6 +52,10 @@ class SettingController extends Controller
 
         $setting->update($validated);
 
-        return redirect()->route('dashboard.setting.index')->with('success', 'Setting updated successfully.');
+        return redirect()->route('dashboard.setting.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Setting updated successfully.',
+        ]);
     }
 }

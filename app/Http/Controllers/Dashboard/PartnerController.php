@@ -44,7 +44,11 @@ class PartnerController extends Controller
 
         Partner::create($validated);
 
-        return redirect()->route('dashboard.partner.index');
+        return redirect()->route('dashboard.partner.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Partner created successfully.',
+        ]);
     }
 
     /**
@@ -71,7 +75,11 @@ class PartnerController extends Controller
 
         $partner->update($validated);
 
-        return redirect()->route('dashboard.partner.index');
+        return redirect()->route('dashboard.partner.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Partner updated successfully.',
+        ]);
     }
 
     /**
@@ -85,6 +93,10 @@ class PartnerController extends Controller
 
         $partner->delete();
 
-        return redirect()->route('dashboard.partner.index');
+        return redirect()->route('dashboard.partner.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Partner deleted successfully.',
+        ]);
     }
 }

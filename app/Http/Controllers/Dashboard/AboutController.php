@@ -27,7 +27,11 @@ class AboutController extends Controller
         $about = About::first();
 
         if (!$about) {
-            return redirect()->route('dashboard')->with('error', 'About not found.');
+            return redirect()->route('dashboard')->with('notification', [
+                'variant' => 'danger', // Variant untuk notifikasi error
+                'title' => 'Error!',
+                'message' => 'About not found.',
+            ]);
         }
 
         $validated = $request->validated();
@@ -41,6 +45,10 @@ class AboutController extends Controller
 
         $about->update($validated);
 
-        return redirect()->route('dashboard.about.index')->with('success', 'About updated successfully.');
+        return redirect()->route('dashboard.about.index')->with('notification', [
+            'variant' => 'success', // Variant untuk notifikasi sukses
+            'title' => 'Success!',
+            'message' => 'About updated successfully.',
+        ]);
     }
 }

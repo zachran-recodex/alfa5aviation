@@ -28,7 +28,11 @@ class HeroSectionController extends Controller
         $heroSection = HeroSection::first();
 
         if (!$heroSection) {
-            return redirect()->route('dashboard')->with('error', 'Hero section not found.');
+            return redirect()->route('dashboard')->with('notification', [
+                'variant' => 'danger',
+                'title' => 'Danger!',
+                'message' => 'HeroSection not found.',
+            ]);
         }
 
         $validated = $request->validated();
@@ -43,6 +47,10 @@ class HeroSectionController extends Controller
 
         $heroSection->update($validated);
 
-        return redirect()->route('dashboard.hero-section.index')->with('success', 'Hero section updated successfully.');
+        return redirect()->route('dashboard.hero-section.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Hero Section updated successfully.',
+        ]);
     }
 }

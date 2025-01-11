@@ -46,7 +46,11 @@ class BlogController extends Controller
 
         Blog::create($validated);
 
-        return redirect()->route('dashboard.blog.index');
+        return redirect()->route('dashboard.blog.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Blog created successfully.',
+        ]);
     }
 
     /**
@@ -77,7 +81,11 @@ class BlogController extends Controller
 
         $blog->update($validated);
 
-        return redirect()->route('dashboard.blog.index');
+        return redirect()->route('dashboard.blog.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Blog updated successfully.',
+        ]);
     }
 
     /**
@@ -91,6 +99,10 @@ class BlogController extends Controller
 
         $blog->delete();
 
-        return redirect()->route('dashboard.blog.index');
+        return redirect()->route('dashboard.blog.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Blog deleted successfully.',
+        ]);
     }
 }

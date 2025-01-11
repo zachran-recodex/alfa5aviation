@@ -47,7 +47,11 @@ class FleetController extends Controller
 
         Fleet::create($validated);
 
-        return redirect()->route('dashboard.fleet.index');
+        return redirect()->route('dashboard.fleet.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Fleet created successfully.',
+        ]);
     }
 
     /**
@@ -78,7 +82,11 @@ class FleetController extends Controller
 
         $fleet->update($validated);
 
-        return redirect()->route('dashboard.fleet.index');
+        return redirect()->route('dashboard.fleet.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Fleet updated successfully.',
+        ]);
     }
 
     /**
@@ -92,6 +100,10 @@ class FleetController extends Controller
 
         $fleet->delete();
 
-        return redirect()->route('dashboard.fleet.index');
+        return redirect()->route('dashboard.fleet.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Fleet deleted successfully.',
+        ]);
     }
 }
