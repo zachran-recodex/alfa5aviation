@@ -124,6 +124,7 @@
     </section>
 
     <!-- Blog Section -->
+    @if ($blogs->isNotEmpty())
     <section class="py-8 sm:py-12 lg:py-16">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Title -->
@@ -164,6 +165,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     @stack('before-scripts')
 
