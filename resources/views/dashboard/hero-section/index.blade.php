@@ -23,6 +23,7 @@
 
                 <form action="{{ route('dashboard.hero-section.manage') }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
                     @csrf
+                    @method('PUT')
 
                     <div class="col-span-6">
                         <label for="title" class="form-label">Title</label>

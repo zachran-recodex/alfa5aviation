@@ -50,17 +50,17 @@ Route::middleware('auth')->group(function () {
         Route::resource('fleet', FleetController::class);
 
         Route::get('/hero-section', [HeroSectionController::class, 'index'])->name('hero-section.index');
-        Route::put('/hero-section/manage', [HeroSectionController::class, 'manage'])->name('hero-section.manage');
+        Route::put('/hero-section', [HeroSectionController::class, 'manage'])->name('hero-section.manage');
 
         Route::get('/page-setup', [PageSetupController::class, 'index'])->name('page-setup.index');
-        Route::put('/page-setup/manage', [PageSetupController::class, 'manage'])->name('page-setup.manage');
+        Route::put('/page-setup', [PageSetupController::class, 'manage'])->name('page-setup.manage');
 
         Route::resource('partner', PartnerController::class);
 
         Route::resource('service', ServiceController::class);
 
         Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
-        Route::put('/setting/manage', [SettingController::class, 'manage'])->name('setting.manage');
+        Route::put('/setting', [SettingController::class, 'manage'])->name('setting.manage');
     });
 });
 
