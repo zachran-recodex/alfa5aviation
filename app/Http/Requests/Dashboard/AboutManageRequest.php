@@ -23,7 +23,7 @@ class AboutManageRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'sometimes|image|mimes:jpeg,png,jpg|max:2048',
             'description' => 'required|string',
             'vision' => 'required|string',
             'mission' => 'required|string',
@@ -42,8 +42,6 @@ class AboutManageRequest extends FormRequest
             'title.string' => 'Judul harus berupa teks.',
             'title.max' => 'Judul maksimal 255 karakter.',
 
-            'image.required' => 'Gambar wajib diunggah.',
-            'image.image' => 'File yang diunggah harus berupa gambar.',
             'image.mimes' => 'Gambar hanya diperbolehkan dengan format jpeg, png, atau jpg.',
             'image.max' => 'Ukuran gambar maksimal 2 MB.',
 
