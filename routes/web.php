@@ -59,9 +59,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
         Route::put('/setting', [SettingController::class, 'manage'])->name('setting.manage');
 
-        Route::get('/seo', [SeoController::class, 'index'])->name('seo.index');
-        Route::get('/seo/{page}/edit', [SeoController::class, 'edit'])->name('seo.edit');
-        Route::put('/seo.{page}/update', [SeoController::class, 'update'])->name('seo.update');
+        Route::get('/seo', [SEOController::class, 'index'])->name('seo.index');
+        Route::get('/seo/{page}/edit', [SEOController::class, 'edit'])->name('seo.edit');
+        Route::put('/seo/{page}/update', [SEOController::class, 'update'])->name('seo.update');
     });
 });
 

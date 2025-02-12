@@ -16,7 +16,7 @@
 
             <div class="border-b border-gray-200 py-2 px-4 flex justify-between items-center">
                 <h3 class="text-lg font-medium">
-                    Edit Fleet
+                    Edit SEO for {{ ucfirst($seo->page) }}
                 </h3>
 
                 <a href="{{ route('dashboard.seo.index') }}" class="btn-primary">
@@ -26,7 +26,7 @@
 
             <div class="p-4">
 
-                <form action="{{ route('dashboard.seo.update', $seo->page) }}" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
+                <form action="{{ route('dashboard.seo.update', $seo->page) }}" method="POST" enctype="multipart/form-data" class="grid grid-cols-12 gap-4">
                     @csrf
                     @method('PUT')
 

@@ -36,17 +36,21 @@ class SEOController extends Controller
     {
         $request->validate([
             'title' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:500',
-            'keywords' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|max:500',
+            'meta_keywords' => 'nullable|string|max:255',
             'canonical_url' => 'nullable|url',
         ]);
 
         // Update atau buat data SEO untuk halaman yang dimaksud
         $seo = SEO::updateOrCreate(
             ['page' => $page],
-            $request->only(['title', 'description', 'keywords', 'canonical_url'])
+            $request->only(['title', 'meta_description', 'meta_keywords', 'canonical_url'])
         );
 
-        return redirect()->route('dashboard.seo.edit', $page)->with('success', 'SEO updated successfully!');
+        return redirect()->route('dashboard.seo.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'SEO updated successfully.',
+        ]);
     }
 }
