@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('page_setups', function (Blueprint $table) {
+        Schema::create('s_e_o_s', function (Blueprint $table) {
             $table->id();
-            $table->string('page')->nullable();
-            $table->string('slug')->nullable();
-            $table->string('meta_title')->nullable();
+            $table->string('page')->unique();  // Nama halaman (misal: 'home', 'about', dll.)
+            $table->string('title')->nullable();
             $table->text('meta_description')->nullable();
-            $table->text('meta_keywords')->nullable();
+            $table->string('meta_keywords')->nullable();
+            $table->string('canonical_url')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('page_setups');
+        Schema::dropIfExists('s_e_o_s');
     }
 };

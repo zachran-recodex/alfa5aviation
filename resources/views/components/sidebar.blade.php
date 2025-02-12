@@ -12,7 +12,7 @@
             <li>Content Management</li>
             <li>
                 <a href="{{ route('dashboard.about.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <iconify-icon icon="material-symbols:art-track" class="icon"></iconify-icon>
+                    <iconify-icon icon="mdi:about" class="icon"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">About</span>
                 </a>
             </li>
@@ -30,7 +30,7 @@
             </li>
             <li>
                 <a href="{{ route('dashboard.fleet.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
-                    <iconify-icon icon="material-symbols:helicopter-rounded" class="icon"></iconify-icon>
+                    <iconify-icon icon="ri:plane-fill" class="icon"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Fleet</span>
                 </a>
             </li>
@@ -53,6 +53,12 @@
                 <a href="{{ route('dashboard.contact.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <iconify-icon icon="material-symbols:contact-mail-rounded" class="icon"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('dashboard.seo.index') }}" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <iconify-icon icon="ri:seo-fill" class="icon"></iconify-icon>
+                    <span class="flex-1 ms-3 whitespace-nowrap">SEO</span>
                 </a>
             </li>
             <li>

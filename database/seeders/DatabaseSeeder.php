@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
             ContactSeeder::class,
             FleetSeeder::class,
             HeroSectionSeeder::class,
-            PageSetupSeeder::class,
             PartnerSeeder::class,
             ServiceSeeder::class,
             SettingSeeder::class,
             UserSeeder::class,
+            SEOSeeder::class,
         ]);
     }
 }

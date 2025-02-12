@@ -6,9 +6,9 @@ use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FleetController;
 use App\Http\Controllers\Dashboard\HeroSectionController;
-use App\Http\Controllers\Dashboard\PageSetupController;
 use App\Http\Controllers\Dashboard\PartnerController;
 use App\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\SEOController;
 use App\Http\Controllers\Dashboard\ServiceController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\MainController;
@@ -52,15 +52,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/hero-section', [HeroSectionController::class, 'index'])->name('hero-section.index');
         Route::put('/hero-section', [HeroSectionController::class, 'manage'])->name('hero-section.manage');
 
-        Route::get('/page-setup', [PageSetupController::class, 'index'])->name('page-setup.index');
-        Route::put('/page-setup', [PageSetupController::class, 'manage'])->name('page-setup.manage');
-
         Route::resource('partner', PartnerController::class);
 
         Route::resource('service', ServiceController::class);
 
         Route::get('/setting', [SettingController::class, 'index'])->name('setting.index');
         Route::put('/setting', [SettingController::class, 'manage'])->name('setting.manage');
+
+        Route::get('/seo', [SeoController::class, 'index'])->name('seo.index');
+        Route::get('/seo/{page}/edit', [SeoController::class, 'edit'])->name('seo.edit');
+        Route::put('/seo.{page}/update', [SeoController::class, 'update'])->name('seo.update');
     });
 });
 

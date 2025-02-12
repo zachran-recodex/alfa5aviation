@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PageSetup extends Model
+class SEO extends Model
 {
     protected $fillable = [
-        'meta_title',
+        'page',
+        'title',
         'meta_description',
-        'meta_keywords'
+        'meta_keywords',
+        'canonical_url'
     ];
 }
