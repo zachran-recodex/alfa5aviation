@@ -32,9 +32,13 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PartnerStoreRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'max:2048'],
+            'url' => ['nullable', 'url', 'max:255'], // Validasi URL
+        ]);
 
         if ($request->hasFile('image')) {
             $validated['image'] = $request->file('image')->store('partner', 'public');
@@ -62,9 +66,13 @@ class PartnerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PartnerUpdateRequest $request, Partner $partner)
+    public function update(Request $request, Partner $partner)
     {
-        $validated = $request->validated();
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'max:2048'],
+            'url' => ['nullable', 'url', 'max:255'], // Validasi URL
+        ]);
 
         if ($request->hasFile('image')) {
             if ($partner->image) {
