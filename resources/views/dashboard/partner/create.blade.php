@@ -44,6 +44,14 @@
                         @enderror
                     </div>
 
+                    <div class="col-span-6">
+                        <label for="url" class="form-label">URL</label>
+                        <input type="url" id="url" name="url" class="form-input" placeholder="https://example.com" />
+                        @error('url')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
                     <div class="col-span-12 flex justify-end">
                         <button type="submit" class="btn-success">
                             Create

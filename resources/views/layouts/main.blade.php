@@ -73,39 +73,35 @@
                         <div id="dropdown-servicenav"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                @foreach ($navServices as $service)
+                                @foreach ($navServices as $navService)
                                     <li>
-                                        <a href="{{ route('service.details', $service->slug) }}"
-                                            class="block px-4 py-2 hover:bg-gray-100">{{ $service->title }}</a>
+                                        <a href="{{ route('service.details', $navService->slug) }}"
+                                            class="block px-4 py-2 hover:bg-gray-100">{{ $navService->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href="{{ route('fleet') }}" id="dropdown-fleet" data-dropdown-toggle="dropdown-fleetnav"
-                            class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
+                        <div id="dropdown-fleet" data-dropdown-toggle="dropdown-fleetnav"
+                             class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto">
                             Fleets
                             <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                fill="none" viewBox="0 0 10 6">
+                                 fill="none" viewBox="0 0 10 6">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 1 4 4 4-4" />
+                                      stroke-width="2" d="m1 1 4 4 4-4" />
                             </svg>
-                        </a>
+                        </div>
                         <!-- Dropdown menu -->
                         <div id="dropdown-fleetnav"
-                            class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                @forelse ($navFleets as $fleet)
+                                @foreach ($navFleets as $navFleet)
                                     <li>
-                                        <a href="{{ route('fleet.details', $fleet->slug) }}"
-                                            class="block px-4 py-2 hover:bg-gray-100">{{ $fleet->title }}</a>
+                                        <a href="{{ route('fleet.details', $navFleet->slug) }}"
+                                           class="block px-4 py-2 hover:bg-gray-100">{{ $navFleet->title }}</a>
                                     </li>
-                                @empty
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">No Fleets</a>
-                                    </li>
-                                @endforelse
+                                @endforeach
                             </ul>
                         </div>
                     </li>
