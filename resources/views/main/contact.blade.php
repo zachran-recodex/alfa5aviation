@@ -73,7 +73,7 @@
                     <div class="border-b-2 pb-4">
                         <span class="text-sm text-gray-500">Alfa5 Aviation</span>
                         <h2 class="text-2xl font-semibold text-gray-800 mt-2 text-justify">
-                            Graha Dirgantara 2nd floor unit H Jl. Protokol Halim Perdanakusuma no.8 Jakarta Timur 13610
+                            {{ $setting->address }}
                         </h2>
                     </div>
 
@@ -83,10 +83,10 @@
                         <div>
                             <span class="text-sm text-gray-500">Email Support</span>
                             <ul class="mt-2 space-y-2">
-                                <li><a href="mailto:sales@alfa5aviation.com"
-                                        class="text-lg text-[#1A2D73] hover:underline">sales@alfa5aviation.com</a></li>
-                                <li><a href="mailto:ops@alfa5aviation.com"
-                                        class="text-lg text-[#1A2D73] hover:underline">ops@alfa5aviation.com</a></li>
+                                <li><a href="mailto:{{ $setting->email_one }}"
+                                        class="text-lg text-[#1A2D73] hover:underline">{{ $setting->email_one }}</a></li>
+                                <li><a href="{{ $setting->email_two }}"
+                                        class="text-lg text-[#1A2D73] hover:underline">{{ $setting->email_two }}</a></li>
                             </ul>
                         </div>
 
@@ -94,10 +94,16 @@
                         <div>
                             <span class="text-sm text-gray-500">Let's Talk</span>
                             <ul class="mt-2 space-y-2">
-                                <li><a href="tel:+6282298141940" class="text-lg text-[#1A2D73] hover:underline">+62 822
-                                        9814 1940</a></li>
-                                <li><a href="tel:+6282298141940" class="text-lg text-[#1A2D73] hover:underline">+62 822
-                                        9814 1940</a></li>
+                                <li>
+                                    <a href="tel:{{ $setting->phone_one }}" class="text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->phone_one }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ $setting->phone_two }}" class="text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->phone_two }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

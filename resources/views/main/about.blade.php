@@ -106,8 +106,8 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-sm font-medium text-gray-600">CALL ANYTIME</p>
-                                <a href="tel:+{{ $setting->phone_one }}"
-                                    class="text-lg font-bold text-gray-800">+{{ $setting->phone_one }}</a>
+                                <a href="tel:{{ $setting->phone_one }}"
+                                    class="text-lg font-bold text-gray-800">{{ $setting->phone_one }}</a>
                             </div>
                         </div>
                     </div>
