@@ -64,4 +64,32 @@
             </div>
         </div>
     </div>
+
+    @if (session('notification'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.dispatchEvent(new CustomEvent('notify', {
+                    detail: {
+                        variant: '{{ session('notification.variant') }}',
+                        title: '{{ session('notification.title') }}',
+                        message: '{{ session('notification.message') }}'
+                    }
+                }));
+            });
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                window.dispatchEvent(new CustomEvent('notify', {
+                    detail: {
+                        variant: 'danger', // Variant untuk notifikasi error
+                        title: 'Error!',
+                        message: '{{ $errors->first() }}' // Menampilkan pesan error pertama
+                    }
+                }));
+            });
+        </script>
+    @endif
 </x-dashboard-layout>
