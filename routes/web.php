@@ -28,6 +28,7 @@ Route::get('/fleet/{slug}', [MainController::class, 'detailFleet'])->name('fleet
 Route::get('/blog/{slug}', [MainController::class, 'blog'])->name('blog.details');
 
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::post('/contact', [MainController::class, 'storeContact'])->name('contact.store');
 
 Route::middleware('auth')->group(function () {
 
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
         Route::get('/contact/{contact}', [ContactController::class, 'show'])->name('contact.show');
+        Route::delete('/contact', [ContactController::class, 'destroy'])->name('contact.destroy');
 
         Route::resource('fleet', FleetController::class);
 

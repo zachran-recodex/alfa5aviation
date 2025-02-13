@@ -105,7 +105,9 @@
 
                 <!-- Contact Form -->
                 <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                    <form action="">
+                    <form action="{{ route('contact.store') }}" method="POST">
+                        @csrf <!-- CSRF Token for Security -->
+
                         <!-- Form Header -->
                         <div class="mb-4">
                             <h3 class="text-4xl font-semibold text-gray-800 mb-4">Send Us a Message</h3>
@@ -113,6 +115,12 @@
                                 Reach out to Alfa 5 Aviation for inquiries, bookings, or collaborations. We're here to
                                 assist you in all your aviation needs. Contact us today.
                             </p>
+                            <!-- Display Success Message -->
+                            @if(session('success'))
+                                <div class="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                         </div>
 
                         <!-- Form Fields -->
@@ -121,45 +129,61 @@
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
                                 <input type="text" id="name" name="name"
-                                    class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="Enter your name">
+                                       class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                       placeholder="Enter your name" value="{{ old('name') }}">
+                                @error('name')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Email Input -->
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
                                 <input type="email" id="email" name="email"
-                                    class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="Enter your email">
+                                       class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                       placeholder="Enter your email" value="{{ old('email') }}">
+                                @error('email')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Phone Input -->
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700">Your Phone</label>
                                 <input type="tel" id="phone" name="phone"
-                                    class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="Enter your phone number">
+                                       class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                       placeholder="Enter your phone number" value="{{ old('phone') }}">
+                                @error('phone')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Subject Input -->
                             <div>
                                 <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
                                 <input type="text" id="subject" name="subject"
-                                    class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="Enter the subject of your message">
+                                       class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                       placeholder="Enter the subject of your message" value="{{ old('subject') }}">
+                                @error('subject')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Message Input -->
                             <div>
                                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                                 <textarea id="message" name="message" rows="4"
-                                    class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="Write your message"></textarea>
+                                          class="mt-1 p-3 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                          placeholder="Write your message">{{ old('message') }}</textarea>
+                                @error('message')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <!-- Submit Button -->
                             <div>
                                 <button type="submit"
-                                    class="w-full bg-[#1A2D73] text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-900 transition">
+                                        class="w-full bg-[#1A2D73] text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-900 transition">
                                     Send Message
                                 </button>
                             </div>
@@ -194,206 +218,48 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="py-8 sm:py-12 lg:py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Title -->
-            <div class="text-center">
-                <h3 class="text-lg font-semibold text-[#FFDA03] mb-2">FROM THE NEWS POSTS</h3>
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-12">
-                    Checkout Our Latest Aviation News and Articles
-                </h2>
-            </div>
+    @if ($blogs->isNotEmpty())
+        <section class="py-8 sm:py-12 lg:py-16">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Title -->
+                <div class="text-center">
+                    <h3 class="text-lg font-semibold text-[#FFDA03] mb-2">FROM THE NEWS POSTS</h3>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-12">
+                        Checkout Our Latest Aviation News and Articles
+                    </h2>
+                </div>
 
-            <!-- News Cards -->
-            <div class="overflow-x-auto">
-                <div class="flex space-x-8">
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
+                <!-- News Cards -->
+                <div class="overflow-x-auto">
+                    <div class="flex space-x-8">
+                        @foreach ($blogs as $blog)
+                            <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
+                                <a href="{{ route('blog.details', $blog->slug) }}">
+                                    <img class="rounded-t-lg w-full h-[250px] object-cover"
+                                         src="{{ asset('storage/' . $blog->image) }}" alt="{{ $blog->title }}" />
+                                </a>
+                                <div class="p-5 mb-5">
+                                    <div class="mb-5 flex justify-between">
+                                        <p>BY {{ $blog->author }}</p>
+                                        <p>{{ $blog->created_at->format('M d, Y') }}</p>
+                                    </div>
+                                    <a href="{{ $blog['url'] }}">
+                                        <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900">
+                                            {{ $blog->title }}
+                                        </h5>
+                                    </a>
+                                    <a href="{{ route('blog.details', $blog->slug) }}"
+                                       class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
+                                        Read More
+                                    </a>
+                                </div>
                             </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Card 1 -->
-                    <div class="min-w-[350px] bg-white border border-gray-200 rounded-lg shadow">
-                        <a href="#">
-                            <img class="rounded-t-lg w-full h-[250px] object-cover" src="{{ asset('images/pj.jpg') }}"
-                                alt="Embraer Legacy 600" />
-                        </a>
-                        <div class="p-5 mb-5">
-                            <div class="mb-5 flex justify-between">
-                                <p>BY AUTHOR</p>
-                                <p>AUGUST 26, 2024</p>
-                            </div>
-                            <a href="#">
-                                <h5 class="mb-5 text-2xl font-bold tracking-tight text-gray-900 text-justify">
-                                    All You Need to Know About Ground Handling
-                                </h5>
-                            </a>
-                            <a href="#"
-                                class="border border-[#1A2D73] text-[#1A2D73] font-semibold py-3 px-8 rounded-full hover:border-blue-900 hover:text-blue-900 transition">
-                                Read More
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     @stack('before-scripts')
 

@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\Fleet;
 use App\Models\Partner;
 use App\Models\Service;
 use App\Models\HeroSection;
+use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
@@ -78,6 +80,33 @@ class MainController extends Controller
 
     public function contact()
     {
-        return view ('main.contact');
+        $blogs = Blog::all();
+
+        return view ('main.contact', compact('blogs'));
+    }
+
+    public function storeContact(Request $request)
+    {
+        // Validate the request data
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'phone' => 'nullable|string|max:20',
+            'email' => 'required|email|max:255',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        // Create a new contact record in the database
+        Contact::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'is_read' => false, // Default value for is_read
+        ]);
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }

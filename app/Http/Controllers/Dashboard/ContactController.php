@@ -32,6 +32,10 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return redirect()->route('dashboard.contact.index');
+        return redirect()->route('dashboard.contact.index')->with('notification', [
+            'variant' => 'success',
+            'title' => 'Success!',
+            'message' => 'Contact deleted successfully.',
+        ]);
     }
 }
