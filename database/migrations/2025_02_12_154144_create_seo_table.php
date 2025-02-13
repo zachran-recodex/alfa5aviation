@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('s_e_o_s', function (Blueprint $table) {
+        Schema::create('seo', function (Blueprint $table) {
             $table->id();
             $table->string('page')->unique();  // Nama halaman (misal: 'home', 'about', dll.)
             $table->string('title')->nullable();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('s_e_o_s');
+        Schema::dropIfExists('seo');
     }
 };
