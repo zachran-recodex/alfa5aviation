@@ -57,14 +57,6 @@
                         @enderror
                     </div>
 
-                    <div class="col-span-12">
-                        <label for="canonical_url" class="form-label">Canonical URL</label>
-                        <input type="url" id="canonical_url" name="canonical_url" class="form-input" value="{{ old('canonical_url', $seo->canonical_url) }}" />
-                        @error('canonical_url')
-                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
                     <!-- Submit Button -->
                     <div class="col-span-12 flex justify-end">
                         <button type="submit" class="btn-success">

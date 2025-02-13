@@ -13,6 +13,5 @@ class SEO extends Model
         'title',
         'meta_description',
         'meta_keywords',
-        'canonical_url'
     ];
 }

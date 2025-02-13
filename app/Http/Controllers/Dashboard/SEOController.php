@@ -38,13 +38,12 @@ class SEOController extends Controller
             'title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'meta_keywords' => 'nullable|string|max:255',
-            'canonical_url' => 'nullable|url',
         ]);
 
         // Update atau buat data SEO untuk halaman yang dimaksud
         $seo = SEO::updateOrCreate(
             ['page' => $page],
-            $request->only(['title', 'meta_description', 'meta_keywords', 'canonical_url'])
+            $request->only(['title', 'meta_description', 'meta_keywords'])
         );
 
         return redirect()->route('dashboard.seo.index')->with('notification', [
