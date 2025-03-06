@@ -1,14 +1,13 @@
 @section('meta_tag')
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Aircraft Brokerage">
-    <meta name="author" content="Alfa5 Aviation">
+    <meta name="description" content="{{ optional($pageSetups['home'])->meta_description ?? '' }}">
+    <meta name="keywords" content="{{ optional($pageSetups['home'])->meta_keywords ?? '' }}">
+    <meta name="author" content="RECODEX ID">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ optional($pageSetups['home'])->title ?? 'Home' }}</title>
 @endsection
 
 <x-layouts.main>
@@ -24,7 +23,7 @@
             <h1 class="text-white text-6xl font-bold mb-8">{{ $heroSection->title }}</h1>
 
             <!-- Buttons -->
-            <div class="flex space-x-4">
+            <div class="flex space-x-4 mt-12">
                 <!-- Request a Quote Button -->
                 <a href="{{ route('contact') }}"
                     class="border border-gray-400 text-white font-semibold py-3 px-6 rounded-full hover:border-white transition">
@@ -101,8 +100,8 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-sm font-medium text-gray-600">CALL ANYTIME</p>
-                                <a href="tel:{{ $setting->phone_one }}"
-                                    class="text-lg font-bold text-gray-800">{{ $setting->phone_one }}</a>
+                                <a href="tel:{{ $setting->phone }}"
+                                    class="text-lg font-bold text-gray-800">{{ $setting->phone }}</a>
                             </div>
                         </div>
                     </div>

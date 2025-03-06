@@ -1,14 +1,13 @@
 @section('meta_tag')
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Aircraft Brokerage">
-    <meta name="author" content="Alfa5 Aviation">
+    <meta name="description" content="{{ optional($pageSetups['about'])->meta_description ?? '' }}">
+    <meta name="keywords" content="{{ optional($pageSetups['about'])->meta_keywords ?? '' }}">
+    <meta name="author" content="RECODEX ID">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ optional($pageSetups['about'])->title ?? 'About Us' }}</title>
 @endsection
 
 <x-layouts.main>
@@ -60,12 +59,8 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Image Section -->
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="{{ asset('images/about.jpg') }}" alt="Private Jet Charter"
-                        class="h-full object-cover rounded-lg shadow-md mt-8">
-                    <img src="{{ asset('storage/' . $about->image) }}" alt="Private Jet Experience"
+                <img src="{{ asset('storage/' . $about->image) }}" alt="Private Jet Experience"
                         class="h-full object-cover rounded-lg shadow-md mb-8">
-                </div>
 
                 <!-- Text Section -->
                 <div class="flex flex-col justify-center">
@@ -103,8 +98,8 @@
                             </div>
                             <div class="text-left">
                                 <p class="text-sm font-medium text-gray-600">CALL ANYTIME</p>
-                                <a href="tel:{{ $setting->phone_one }}"
-                                    class="text-lg font-bold text-gray-800">{{ $setting->phone_one }}</a>
+                                <a href="tel:{{ $setting->phone }}"
+                                    class="text-lg font-bold text-gray-800">{{ $setting->phone }}</a>
                             </div>
                         </div>
                     </div>

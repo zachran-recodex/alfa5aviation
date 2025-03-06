@@ -1,17 +1,13 @@
 @section('meta_tag')
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Private Jet Charter">
-    <meta name="author" content="Zachran Razendra">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ optional($pageSetups['service'])->meta_description ?? '' }}">
+    <meta name="keywords" content="{{ optional($pageSetups['service'])->meta_keywords ?? '' }}">
+    <meta name="author" content="RECODEX ID">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2A6F97">
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ optional($pageSetups['service'])->title ?? 'Service' }} | {{ $service->title }}</title>
 @endsection
 
 <x-layouts.main>
@@ -78,7 +74,7 @@
                     <img class="w-full h-[500px] object-cover rounded-lg" src="{{ asset('storage/' . $service->image) }}"
                         alt="{{ $service->title }}">
                     <div>
-                        <h3 class="text-2xl font-bold mb-4">Private Jet Charter</h3>
+                        <h3 class="text-2xl font-bold mb-4">{{ $service->title }}</h3>
                         <div class="text-justify space-y-4 text-gray-700">
                             <p>
                                 {{ $service->description }}

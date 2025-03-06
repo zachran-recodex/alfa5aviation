@@ -1,14 +1,13 @@
 @section('meta_tag')
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Aircraft Brokerage">
-    <meta name="author" content="Alfa5 Aviation">
+    <meta name="description" content="{{ optional($pageSetups['fleet'])->meta_description ?? '' }}">
+    <meta name="keywords" content="{{ optional($pageSetups['fleet'])->meta_keywords ?? '' }}">
+    <meta name="author" content="RECODEX ID">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ optional($pageSetups['fleet'])->title ?? 'Fleet' }} | {{ $fleet->title }}</title>
 @endsection
 
 <x-layouts.main>

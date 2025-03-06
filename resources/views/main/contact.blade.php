@@ -1,14 +1,13 @@
 @section('meta_tag')
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Alfa5 Aviation">
-    <meta name="keywords" content="Aircraft Brokerage">
-    <meta name="author" content="Alfa5 Aviation">
+    <meta name="description" content="{{ optional($pageSetups['contact'])->meta_description ?? '' }}">
+    <meta name="keywords" content="{{ optional($pageSetups['contact'])->meta_keywords ?? '' }}">
+    <meta name="author" content="RECODEX ID">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <title>Alfa5 Aviation</title>
+    <title>{{ optional($pageSetups['contact'])->title ?? 'Contact Us' }}</title>
 @endsection
 
 <x-layouts.main>
@@ -80,10 +79,8 @@
                         <div>
                             <span class="text-sm text-gray-500">Email Support</span>
                             <ul class="mt-2 space-y-2">
-                                <li><a href="mailto:{{ $setting->email_one }}"
-                                        class="text-lg text-[#1A2D73] hover:underline">{{ $setting->email_one }}</a></li>
-                                <li><a href="{{ $setting->email_two }}"
-                                        class="text-lg text-[#1A2D73] hover:underline">{{ $setting->email_two }}</a></li>
+                                <li><a href="mailto:{{ $setting->email }}"
+                                        class="text-lg text-[#1A2D73] hover:underline">{{ $setting->email }}</a></li>
                             </ul>
                         </div>
 
@@ -92,13 +89,8 @@
                             <span class="text-sm text-gray-500">Let's Talk</span>
                             <ul class="mt-2 space-y-2">
                                 <li>
-                                    <a href="tel:{{ $setting->phone_one }}" class="text-lg text-[#1A2D73] hover:underline">
-                                        {{ $setting->phone_one }}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ $setting->phone_two }}" class="text-lg text-[#1A2D73] hover:underline">
-                                        {{ $setting->phone_two }}
+                                    <a href="tel:{{ $setting->phone }}" class="text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->phone }}
                                     </a>
                                 </li>
                             </ul>

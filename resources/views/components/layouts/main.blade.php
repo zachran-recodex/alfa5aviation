@@ -3,6 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#2A6F97">
 
         @yield('meta_tag')
 
@@ -16,8 +18,6 @@
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
         <link rel="manifest" href="{{ asset('site.webmanifest') }}">
-
-        <meta name="theme-color" content="#2A6F97">
 
         <!-- Icon (Font Awesome) -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -37,7 +37,7 @@
                     <a href="{{ route('login') }}" class="text-[#1A2D73]">
                         <i class="fa-solid fa-user"></i>
                     </a>
-                    <a href="{{ route('contact') }}"
+                    <a href="https://wa.me/6281818779955" target="_blank"
                        class="text-white bg-[#1A2D73] font-medium rounded-full text-sm px-4 py-2 text-center">
                         Contact Us
                     </a>
@@ -204,8 +204,16 @@
             <!-- Copyright and Privacy -->
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between py-8 text-gray-400">
-                    <p>© Copyright 2024 by <a href="#" class="text-white hover:underline">Alfa5 Aviation</a></p>
-                    <a href="#" class="hover:underline">Privacy & Policy</a>
+                    <p>© {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary transition">
+                            Privacy Policy
+                        </a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-primary transition">
+                            Terms of Service
+                        </a>
+                        <span class="text-sm text-gray-400">Created by <a href="https://recodex.id" target="_blank" class="text-[#86c332]">Recodex ID</a></span>
+                    </div>
                 </div>
             </div>
         </div>
