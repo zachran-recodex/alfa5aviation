@@ -12,29 +12,31 @@
             </a>
 
             <flux:navlist variant="outline">
-                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
+                <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>Dashboard</flux:navlist.item>
             </flux:navlist>
 
             <flux:navlist variant="outline">
                 <flux:navlist.group heading="Content Management System" class="grid">
-                    <flux:navlist.item icon="signal" :href="route('dashboard.about')" :current="request()->routeIs('dashboard.about')" wire:navigate>{{ __('About') }}</flux:navlist.item>
 
-                    <flux:navlist.item icon="newspaper" :href="route('dashboard.blog')" :current="request()->routeIs('dashboard.blog')" wire:navigate>{{ __('Blog') }}</flux:navlist.item>
+                    <flux:navlist.item icon="signal" :href="route('dashboard.about')" :current="request()->routeIs('dashboard.about')" wire:navigate>About</flux:navlist.item>
 
-                    <flux:navlist.item icon="paper-airplane" :href="route('dashboard.fleet')" :current="request()->routeIs('dashboard.fleet')" wire:navigate>{{ __('Fleet') }}</flux:navlist.item>
+                    <flux:navlist.item icon="newspaper" :href="route('dashboard.blog')" :current="request()->routeIs('dashboard.blog')" wire:navigate>Blog</flux:navlist.item>
 
-                    <flux:navlist.item icon="computer-desktop" :href="route('dashboard.hero-section')" :current="request()->routeIs('dashboard.hero-section')" wire:navigate>{{ __('Hero Section') }}</flux:navlist.item>
+                    <flux:navlist.item icon="paper-airplane" :href="route('dashboard.fleet')" :current="request()->routeIs('dashboard.fleet')" wire:navigate>Fleet</flux:navlist.item>
 
-                    <flux:navlist.item icon="building-office" :href="route('dashboard.partner')" :current="request()->routeIs('dashboard.partner')" wire:navigate>{{ __('Partner') }}</flux:navlist.item>
+                    <flux:navlist.item icon="computer-desktop" :href="route('dashboard.hero-section')" :current="request()->routeIs('dashboard.hero-section')" wire:navigate>Hero Section</flux:navlist.item>
+
+                    <flux:navlist.item icon="building-office" :href="route('dashboard.partner')" :current="request()->routeIs('dashboard.partner')" wire:navigate>Partner</flux:navlist.item>
 
                 </flux:navlist.group>
             </flux:navlist>
 
             <flux:navlist variant="outline">
                 <flux:navlist.group heading="Other" class="grid">
-                    <flux:navlist.item icon="phone" :href="route('dashboard.contact')" :current="request()->routeIs('dashboard.contact')" wire:navigate>{{ __('Contact') }}</flux:navlist.item>
 
-                    <flux:navlist.item icon="viewfinder-circle" :href="route('dashboard.page-setup')" :current="request()->routeIs('dashboard.page-setup')" wire:navigate>{{ __('Page Setup') }}</flux:navlist.item>
+                    <flux:navlist.item icon="phone" :href="route('dashboard.contact')" :current="request()->routeIs('dashboard.contact')" wire:navigate>Contact</flux:navlist.item>
+
+                    <flux:navlist.item icon="viewfinder-circle" :href="route('dashboard.page-setup')" :current="request()->routeIs('dashboard.page-setup')" wire:navigate>Page Setup</flux:navlist.item>
 
                 </flux:navlist.group>
             </flux:navlist>
@@ -43,11 +45,11 @@
 
             <flux:navlist variant="outline">
                 <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                {{ __('Repository') }}
+                    Repository
                 </flux:navlist.item>
 
                 <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits" target="_blank">
-                {{ __('Documentation') }}
+                    Documentation
                 </flux:navlist.item>
             </flux:navlist>
 
@@ -57,6 +59,7 @@
                     :name="auth()->user()->name"
                     :initials="auth()->user()->initials()"
                     icon-trailing="chevrons-up-down"
+                    class="cursor-pointer"
                 />
 
                 <flux:menu class="w-[220px]">
@@ -82,15 +85,15 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item href="/dashboard/settings/profile" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item href="/dashboard/settings/appearance" icon="cog" wire:navigate>Settings</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
 
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
-                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
+                        <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full cursor-pointer">
+                            Log Out
                         </flux:menu.item>
                     </form>
                 </flux:menu>
@@ -132,7 +135,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item href="/dashboard/settings/profile" icon="cog" wire:navigate>Settings</flux:menu.item>
+                        <flux:menu.item href="/dashboard/settings/appearance" icon="cog" wire:navigate>Settings</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -140,7 +143,7 @@
                     <form method="POST" action="{{ route('logout') }}" class="w-full">
                         @csrf
                         <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full">
-                            {{ __('Log Out') }}
+                            Log Out
                         </flux:menu.item>
                     </form>
                 </flux:menu>

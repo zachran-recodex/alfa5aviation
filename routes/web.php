@@ -45,11 +45,9 @@ Route::middleware(['auth'])->group(function () {
 
         Route::view('/service', 'dashboard.service')->name('service');
 
-        // Route::view('/setting', 'dashboard.setting')->name('setting');
-
         Route::view('/page-setup', 'dashboard.page-setup')->name('page-setup');
 
-        Route::redirect('settings', '/dashboard/settings/profile');
+        Route::redirect('settings', '/dashboard/settings/appearance');
 
         Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
         Volt::route('settings/password', 'settings.password')->name('settings.password');
