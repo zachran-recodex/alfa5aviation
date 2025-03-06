@@ -113,7 +113,7 @@
 
                         <flux:input type="file" id="newImage" wire:model="newImage" />
 
-                        <div wire:loading wire:target="newImage" class="text-sm text-gray-500 mt-1">Mengupload...</div>
+                        <div wire:loading wire:target="newImage" class="text-sm text-gray-500 mt-1">Uploading...</div>
 
                         <flux:error name="newImage" />
                     </flux:field>
