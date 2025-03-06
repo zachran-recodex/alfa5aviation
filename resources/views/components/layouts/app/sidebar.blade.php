@@ -24,6 +24,8 @@
 
                     <flux:navlist.item icon="paper-airplane" :href="route('dashboard.fleet')" :current="request()->routeIs('dashboard.fleet')" wire:navigate>Fleet</flux:navlist.item>
 
+                    <flux:navlist.item icon="briefcase" :href="route('dashboard.service')" :current="request()->routeIs('dashboard.service')" wire:navigate>Service</flux:navlist.item>
+
                     <flux:navlist.item icon="computer-desktop" :href="route('dashboard.hero-section')" :current="request()->routeIs('dashboard.hero-section')" wire:navigate>Hero Section</flux:navlist.item>
 
                     <flux:navlist.item icon="building-office" :href="route('dashboard.partner')" :current="request()->routeIs('dashboard.partner')" wire:navigate>Partner</flux:navlist.item>
