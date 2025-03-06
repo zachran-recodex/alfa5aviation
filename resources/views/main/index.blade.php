@@ -5,6 +5,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
+    <meta property="og:title" content="{{ optional($pageSetups['home'])->title ?? 'Home' }}">
+    <meta property="og:description" content="{{ optional($pageSetups['home'])->meta_description ?? '' }}">
+    <meta property="og:image" content="{{ isset($heroSection) && $heroSection->image ? asset('storage/' . $heroSection->image) : asset('default-image.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ optional($pageSetups['home'])->title ?? 'Home' }}">
+    <meta name="twitter:description" content="{{ optional($pageSetups['home'])->meta_description ?? '' }}">
+    <meta name="twitter:image" content="{{ isset($heroSection) && $heroSection->image ? asset('storage/' . $heroSection->image) : asset('default-image.jpg') }}">
+
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>{{ optional($pageSetups['home'])->title ?? 'Home' }}</title>
@@ -18,12 +29,12 @@
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
 
-        <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
+        <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col mt-48">
             <!-- Title -->
             <h1 class="text-white text-6xl font-bold mb-8">{{ $heroSection->title }}</h1>
 
             <!-- Buttons -->
-            <div class="flex space-x-4 mt-12">
+            <div class="flex space-x-4">
                 <!-- Request a Quote Button -->
                 <a href="{{ route('contact') }}"
                     class="border border-gray-400 text-white font-semibold py-3 px-6 rounded-full hover:border-white transition">
@@ -145,7 +156,7 @@
 
     <!-- Request a Quote Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-[500px]"
-        style="background-image: url({{ asset('images/hero-section.png') }})">
+        style="background-image: url({{ asset('storage/' . $heroSection->image) }})">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -223,7 +234,7 @@
                             </a>
                             <div class="p-5 mb-5">
                                 <div class="mb-5 flex justify-between">
-                                    <p>BY {{ $blog->author }}</p>
+                                    <p>Admin</p>
                                     <p>{{ $blog->created_at->format('M d, Y') }}</p>
                                 </div>
                                 <a href="{{ $blog['url'] }}">

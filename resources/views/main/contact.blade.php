@@ -5,6 +5,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
+    <meta property="og:title" content="{{ optional($pageSetups['contact'])->title ?? 'Contact Us' }}">
+    <meta property="og:description" content="{{ optional($pageSetups['contact'])->meta_description ?? '' }}">
+    <meta property="og:image" content="{{ isset($heroSection) && $heroSection->image ? asset('storage/' . $heroSection->image) : asset('default-image.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ optional($pageSetups['contact'])->title ?? 'Contact Us' }}">
+    <meta name="twitter:description" content="{{ optional($pageSetups['contact'])->meta_description ?? '' }}">
+    <meta name="twitter:image" content="{{ isset($heroSection) && $heroSection->image ? asset('storage/' . $heroSection->image) : asset('default-image.jpg') }}">
+
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>{{ optional($pageSetups['contact'])->title ?? 'Contact Us' }}</title>
@@ -13,7 +24,7 @@
 <x-layouts.main>
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-[50vh] flex justify-center items-center"
-        style="background-image: url({{ asset('images/hero-section.png') }})">
+        style="background-image: url({{ asset('storage/' . $heroSection->image) }})">
 
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -192,7 +203,7 @@
 
     <!-- Request a Quote Section -->
     <section class="relative bg-cover bg-center bg-no-repeat h-[500px]"
-        style="background-image: url({{ asset('images/hero-section.png') }})">
+        style="background-image: url({{ asset('storage/' . $heroSection->image) }})">
         <!-- Overlay -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -235,7 +246,7 @@
                                 </a>
                                 <div class="p-5 mb-5">
                                     <div class="mb-5 flex justify-between">
-                                        <p>BY {{ $blog->author }}</p>
+                                        <p>Admin</p>
                                         <p>{{ $blog->created_at->format('M d, Y') }}</p>
                                     </div>
                                     <a href="{{ $blog['url'] }}">

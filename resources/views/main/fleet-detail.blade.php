@@ -5,6 +5,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="index, follow">
 
+    <meta property="og:title" content="{{ optional($pageSetups['fleet'])->title ?? 'Fleet' }} | {{ $fleet->title }}">
+    <meta property="og:description" content="{{ optional($pageSetups['fleet'])->meta_description ?? '' }}">
+    <meta property="og:image" content="{{ isset($fleet) && $fleet->image ? asset('storage/' . $fleet->image) : asset('default-image.jpg') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ optional($pageSetups['fleet'])->title ?? 'Fleet' }} | {{ $fleet->title }}">
+    <meta name="twitter:description" content="{{ optional($pageSetups['fleet'])->meta_description ?? '' }}">
+    <meta name="twitter:image" content="{{ isset($fleet) && $fleet->image ? asset('storage/' . $fleet->image) : asset('default-image.jpg') }}">
+
     <link rel="canonical" href="{{ url()->current() }}">
 
     <title>{{ optional($pageSetups['fleet'])->title ?? 'Fleet' }} | {{ $fleet->title }}</title>

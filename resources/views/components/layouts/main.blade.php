@@ -190,7 +190,7 @@
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-map-marker-alt mr-2"></i>
-                                <a href="#" class="hover:underline text-justify">
+                                <a href="https://maps.app.goo.gl/mZJqe1n5QfJJ8WQk9" class="hover:underline">
                                     {{ $setting->address }}
                                 </a>
                             </li>

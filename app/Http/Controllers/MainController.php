@@ -38,6 +38,7 @@ class MainController extends Controller
 
     public function about()
     {
+        $heroSection = HeroSection::first(); // Ambil satu entri, misalnya yang pertama
         $about = About::first();
         $blogs = Blog::where('is_active', true)
             ->orderBy('id', 'desc')
@@ -46,11 +47,12 @@ class MainController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('main.about', compact('about', 'blogs', 'partners'));
+        return view('main.about', compact('heroSection', 'about', 'blogs', 'partners'));
     }
 
     public function service()
     {
+        $heroSection = HeroSection::first(); // Ambil satu entri, misalnya yang pertama
         $blogs = Blog::where('is_active', true)
             ->orderBy('id', 'desc')
             ->paginate(10);
@@ -58,7 +60,7 @@ class MainController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view('main.service', compact('blogs', 'services'));
+        return view('main.service', compact('heroSection', 'blogs', 'services'));
     }
 
     public function detailService($slug)
@@ -76,6 +78,7 @@ class MainController extends Controller
 
     public function fleet()
     {
+        $heroSection = HeroSection::first(); // Ambil satu entri, misalnya yang pertama
         $fleets = Fleet::where('is_active', true)
             ->orderBy('id', 'desc')
             ->paginate(10);
@@ -83,7 +86,7 @@ class MainController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view ('main.fleet', compact('fleets', 'blogs'));
+        return view ('main.fleet', compact('heroSection', 'fleets', 'blogs'));
     }
 
     public function detailFleet($slug)
@@ -98,21 +101,23 @@ class MainController extends Controller
 
     public function blog($slug)
     {
+        $heroSection = HeroSection::first(); // Ambil satu entri, misalnya yang pertama
         $blogs = Blog::where('is_active', true)
             ->orderBy('id', 'desc')
             ->paginate(10);
         $blog = Blog::where('slug', $slug)->firstOrFail();
 
-        return view('main.blog', compact('blog', 'blogs'));
+        return view('main.blog', compact('heroSection', 'blog', 'blogs'));
     }
 
     public function contact()
     {
+        $heroSection = HeroSection::first(); // Ambil satu entri, misalnya yang pertama
         $blogs = Blog::where('is_active', true)
             ->orderBy('id', 'desc')
             ->paginate(10);
 
-        return view ('main.contact', compact('blogs'));
+        return view ('main.contact', compact('heroSection', 'blogs'));
     }
 
     public function storeContact(Request $request)
