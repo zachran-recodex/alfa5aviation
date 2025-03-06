@@ -28,7 +28,7 @@
         @fluxAppearance
     </head>
     <body class="min-h-screen bg-white">
-        <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
+        <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200" x-data="{ mobileMenuOpen: false, serviceDropdownOpen: false, fleetDropdownOpen: false }">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="{{ asset('storage/' . $setting->logo) }}" class="h-8 sm:h-10 md:h-12" alt="Logo">
@@ -38,35 +38,37 @@
                         <i class="fa-solid fa-user"></i>
                     </a>
                     <a href="https://wa.me/6281818779955" target="_blank"
-                       class="text-white bg-[#1A2D73] font-medium rounded-full text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 text-center whitespace-nowrap">
+                        class="text-white bg-[#1A2D73] font-medium rounded-full text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 text-center whitespace-nowrap">
                         Contact Us
                     </a>
-                    <button data-collapse-toggle="navbar-sticky" type="button"
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" type="button"
                             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                            aria-controls="navbar-sticky" aria-expanded="false">
+                            aria-controls="navbar-sticky" :aria-expanded="mobileMenuOpen">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                             viewBox="0 0 17 14">
+                                viewBox="0 0 17 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M1 1h15M1 7h15M1 13h15" />
+                                    d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
                     </button>
                 </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul
-                        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-4 lg:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
+                <div class="items-center justify-between w-full md:flex md:w-auto md:order-1"
+                     id="navbar-sticky"
+                     :class="{'hidden': !mobileMenuOpen, 'block': mobileMenuOpen}"
+                     @click.outside="mobileMenuOpen = false">
+                    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-4 lg:space-x-8 md:flex-row md:mt-0 md:border-0 md:bg-white">
                         <li>
                             <a href="{{ route('home') }}"
-                               class="block py-2 px-3 text-white bg-[#1A2D73] rounded md:bg-transparent md:text-[#1A2D73] md:p-0"
-                               aria-current="page">Home</a>
+                                class="block py-2 px-3 text-white bg-[#1A2D73] rounded md:bg-transparent md:text-[#1A2D73] md:p-0"
+                                aria-current="page">Home</a>
                         </li>
                         <li>
                             <a href="{{ route('about') }}"
-                               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1A2D73] md:p-0">About</a>
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#1A2D73] md:p-0">About</a>
                         </li>
-                        <li>
-                            <div id="dropdown-service" data-dropdown-toggle="dropdown-servicenav"
-                                 class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto cursor-pointer">
+                        <li x-data="{ open: false }" @mouseenter.debounce.50ms="open = true" @mouseleave.debounce.50ms="open = false" class="relative">
+                            <div @click="open = !open"
+                                 class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0 md:w-auto cursor-pointer">
                                 Services
                                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                      fill="none" viewBox="0 0 10 6">
@@ -75,9 +77,17 @@
                                 </svg>
                             </div>
                             <!-- Dropdown menu -->
-                            <div id="dropdown-servicenav"
-                                 class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <div x-show="open"
+                                 x-transition:enter="transition ease-out duration-100"
+                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 x-transition:leave="transition ease-in duration-75"
+                                 x-transition:leave-start="opacity-100 scale-100"
+                                 x-transition:leave-end="opacity-0 scale-95"
+                                 class="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute mt-2 left-0 md:left-auto"
+                                 @click.outside="open = false"
+                                 style="display: none;">
+                                <ul class="py-2 text-sm text-gray-700">
                                     @foreach ($navServices as $navService)
                                         <li>
                                             <a href="{{ route('service.details', $navService->slug) }}"
@@ -87,9 +97,9 @@
                                 </ul>
                             </div>
                         </li>
-                        <li>
-                            <div id="dropdown-fleet" data-dropdown-toggle="dropdown-fleetnav"
-                                 class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto cursor-pointer">
+                        <li x-data="{ open: false }" @mouseenter.debounce.50ms="open = true" @mouseleave.debounce.50ms="open = false" class="relative">
+                            <div @click="open = !open"
+                                 class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#1A2D73] md:p-0 md:w-auto cursor-pointer">
                                 Fleets
                                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                      fill="none" viewBox="0 0 10 6">
@@ -98,9 +108,17 @@
                                 </svg>
                             </div>
                             <!-- Dropdown menu -->
-                            <div id="dropdown-fleetnav"
-                                 class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <div x-show="open"
+                                 x-transition:enter="transition ease-out duration-100"
+                                 x-transition:enter-start="opacity-0 scale-95"
+                                 x-transition:enter-end="opacity-100 scale-100"
+                                 x-transition:leave="transition ease-in duration-75"
+                                 x-transition:leave-start="opacity-100 scale-100"
+                                 x-transition:leave-end="opacity-0 scale-95"
+                                 class="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 absolute mt-2 left-0 md:left-auto"
+                                 @click.outside="open = false"
+                                 style="display: none;">
+                                <ul class="py-2 text-sm text-gray-700">
                                     @foreach ($navFleets as $navFleet)
                                         <li>
                                             <a href="{{ route('fleet.details', $navFleet->slug) }}"
