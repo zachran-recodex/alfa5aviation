@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+
+@source "../views";
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-zinc-50: #fafafa;
+    --color-zinc-100: #f5f5f5;
+    --color-zinc-200: #e5e5e5;
+    --color-zinc-300: #d4d4d4;
+    --color-zinc-400: #a3a3a3;
+    --color-zinc-500: #737373;
+    --color-zinc-600: #525252;
+    --color-zinc-700: #404040;
+    --color-zinc-800: #262626;
+    --color-zinc-900: #171717;
+    --color-zinc-950: #0a0a0a;
+
+    --color-primary-50: #ebf6ff;
+    --color-primary-100: #dbedff;
+    --color-primary-200: #bedcff;
+    --color-primary-300: #97c4ff;
+    --color-primary-400: #6e9fff;
+    --color-primary-500: #4c7aff;
+    --color-primary-600: #2d52fe;
+    --color-primary-700: #2140e1;
+    --color-primary-800: #1e39b5;
+    --color-primary-900: #1b2d75;
+    --color-primary-950: #131e53;
+
+    --color-secondary-50: #fefee8;
+    --color-secondary-100: #fdfcc4;
+    --color-secondary-200: #fcf78c;
+    --color-secondary-300: #faea4a;
+    --color-secondary-400: #f6d811;
+    --color-secondary-500: #e6c00c;
+    --color-secondary-600: #c79607;
+    --color-secondary-700: #9f6c09;
+    --color-secondary-800: #835510;
+    --color-secondary-900: #6f4514;
+    --color-secondary-950: #412407;
+
+    --color-accent: var(--color-neutral-800);
+    --color-accent-content: var(--color-neutral-800);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-white);
+        --color-accent-content: var(--color-white);
+        --color-accent-foreground: var(--color-neutral-800);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field] {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
