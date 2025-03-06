@@ -28,18 +28,8 @@ class AppServiceProvider extends ServiceProvider
         // Cache setting selama 2 jam (120 menit)
         $setting = Cache::remember('setting', 120, fn () => Setting::first());
 
-        // Hanya ambil kolom title dan slug untuk navigasi
-        $navServices = Cache::remember('nav_services', 120, fn () =>
-            Service::where('is_active', true)
-                    ->select('title', 'slug')
-                    ->get()
-        );
-
-        $navFleets = Cache::remember('nav_fleets', 120, fn () =>
-            Fleet::where('is_active', true)
-                    ->select('title', 'slug')
-                    ->get()
-        );
+        $navServices = Cache::remember('nav_services', 120, fn () => Service::where('is_active', true)->get());
+        $navFleets = Cache::remember('nav_fleets', 120, fn () => Fleet::where('is_active', true)->get());
 
         // Cache page setups
         $pageSetups = Cache::remember('page_setups', 120, function () {
