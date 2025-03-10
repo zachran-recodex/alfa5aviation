@@ -31,7 +31,7 @@
         <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200" x-data="{ mobileMenuOpen: false, serviceDropdownOpen: false, fleetDropdownOpen: false }">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src="{{ asset('storage/' . $setting->logo) }}" class="h-8 sm:h-10 md:h-12" alt="Logo">
+                    <img src="{{ asset('images/logo.png') }}" class="h-8 sm:h-10 md:h-12" alt="Logo">
                 </a>
                 <div class="flex md:order-2 space-x-2 sm:space-x-3 md:space-x-6 items-center">
                     <a href="{{ route('login') }}" class="text-[#1A2D73]">
