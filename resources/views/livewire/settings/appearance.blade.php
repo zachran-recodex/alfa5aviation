@@ -21,6 +21,7 @@ new class extends Component {
     public $facebook;
     public $whatsapp;
     public $address;
+    public $address_two;
     public $footer_text;
 
     public function mount()
@@ -45,6 +46,7 @@ new class extends Component {
             $this->facebook = $setting->facebook;
             $this->whatsapp = $setting->whatsapp;
             $this->address = $setting->address;
+            $this->address_two = $setting->address_two;
             $this->footer_text = $setting->footer_text;
         }
     }
@@ -62,6 +64,7 @@ new class extends Component {
             'facebook' => 'nullable|string|max:255',
             'whatsapp' => 'nullable|string|max:20',
             'address' => 'nullable|string',
+            'address_two' => 'nullable|string',
             'footer_text' => 'nullable|string',
             'newLogo' => 'nullable|image|max:1024',
         ]);
@@ -91,6 +94,7 @@ new class extends Component {
             $setting->facebook = $this->facebook;
             $setting->whatsapp = $this->whatsapp;
             $setting->address = $this->address;
+            $setting->address_two = $this->address_two;
             $setting->footer_text = $this->footer_text;
             $setting->save();
 
@@ -210,9 +214,17 @@ new class extends Component {
 
                 <div>
                     <flux:field>
-                        <flux:label for="address">Address</flux:label>
+                        <flux:label for="address">Primary Address</flux:label>
                         <flux:textarea id="address" wire:model="address" rows="3" />
                         <flux:error name="address" />
+                    </flux:field>
+                </div>
+
+                <div>
+                    <flux:field>
+                        <flux:label for="address_two">Secondary Address</flux:label>
+                        <flux:textarea id="address_two" wire:model="address_two" rows="3" />
+                        <flux:error name="address_two" />
                     </flux:field>
                 </div>
             </div>

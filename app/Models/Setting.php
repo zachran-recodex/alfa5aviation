@@ -18,6 +18,7 @@ class Setting extends Model
         'facebook',
         'whatsapp',
         'address',
+        'address_two',
         'footer_text',
     ];
 }

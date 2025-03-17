@@ -197,6 +197,7 @@
                     <!-- Contact Section -->
                     <div class="mt-6 sm:mt-0">
                         <h6 class="font-semibold text-[#FFDA03] text-xl sm:text-2xl mb-4">Contact Us</h6>
+                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg mb-4">Primary</h6>
                         <ul class="flex flex-col gap-2 sm:gap-4">
                             <li class="flex items-center">
                                 <i class="fas fa-phone mr-2"></i>
@@ -204,14 +205,23 @@
                                    class="hover:underline text-sm sm:text-base">{{ $setting->phone }}</a>
                             </li>
                             <li class="flex items-center">
-                                <i class="fas fa-phone mr-2"></i>
-                                <a href="tel:{{ $setting->phone_two }}"
-                                   class="hover:underline text-sm sm:text-base">{{ $setting->phone_two }}</a>
-                            </li>
-                            <li class="flex items-center">
                                 <i class="fas fa-envelope mr-2"></i>
                                 <a href="mailto:{{ $setting->email }}"
                                    class="hover:underline text-sm sm:text-base">{{ $setting->email }}</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                                <a href="https://maps.app.goo.gl/mZJqe1n5QfJJ8WQk9" class="hover:underline text-sm sm:text-base">
+                                    {{ $setting->address }}
+                                </a>
+                            </li>
+                        </ul>
+                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg my-4">Secondary</h6>
+                        <ul class="flex flex-col gap-2 sm:gap-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                <a href="tel:{{ $setting->phone_two }}"
+                                   class="hover:underline text-sm sm:text-base">{{ $setting->phone_two }}</a>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-envelope mr-2"></i>
@@ -220,8 +230,8 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
-                                <a href="https://maps.app.goo.gl/mZJqe1n5QfJJ8WQk9" class="hover:underline text-sm sm:text-base">
-                                    {{ $setting->address }}
+                                <a href="" class="hover:underline text-sm sm:text-base">
+                                    {{ $setting->address_two }}
                                 </a>
                             </li>
                         </ul>
