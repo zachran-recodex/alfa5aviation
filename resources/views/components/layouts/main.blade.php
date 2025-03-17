@@ -204,9 +204,19 @@
                                    class="hover:underline text-sm sm:text-base">{{ $setting->phone }}</a>
                             </li>
                             <li class="flex items-center">
+                                <i class="fas fa-phone mr-2"></i>
+                                <a href="tel:{{ $setting->phone_two }}"
+                                   class="hover:underline text-sm sm:text-base">{{ $setting->phone_two }}</a>
+                            </li>
+                            <li class="flex items-center">
                                 <i class="fas fa-envelope mr-2"></i>
                                 <a href="mailto:{{ $setting->email }}"
                                    class="hover:underline text-sm sm:text-base">{{ $setting->email }}</a>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-2"></i>
+                                <a href="mailto:{{ $setting->email_two }}"
+                                   class="hover:underline text-sm sm:text-base">{{ $setting->email_two }}</a>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-map-marker-alt mr-2 mt-1"></i>

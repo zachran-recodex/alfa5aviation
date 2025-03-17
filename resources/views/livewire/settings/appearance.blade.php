@@ -12,7 +12,9 @@ new class extends Component {
     public $logo;
     public $newLogo;
     public $phone;
+    public $phone_two;
     public $email;
+    public $email_two;
     public $instagram;
     public $linkedin;
     public $tiktok;
@@ -34,7 +36,9 @@ new class extends Component {
             $this->settingId = $setting->id;
             $this->logo = $setting->logo;
             $this->phone = $setting->phone;
+            $this->phone_two = $setting->phone_two;
             $this->email = $setting->email;
+            $this->email_two = $setting->email_two;
             $this->instagram = $setting->instagram;
             $this->linkedin = $setting->linkedin;
             $this->tiktok = $setting->tiktok;
@@ -49,7 +53,9 @@ new class extends Component {
     {
         $this->validate([
             'phone' => 'nullable|string|max:20',
+            'phone_two' => 'nullable|string|max:20',
             'email' => 'nullable|email|max:255',
+            'email_two' => 'nullable|email|max:255',
             'instagram' => 'nullable|string|max:255',
             'linkedin' => 'nullable|string|max:255',
             'tiktok' => 'nullable|string|max:255',
@@ -76,7 +82,9 @@ new class extends Component {
             }
 
             $setting->phone = $this->phone;
+            $setting->phone_two = $this->phone_two;
             $setting->email = $this->email;
+            $setting->email_two = $this->email_two;
             $setting->instagram = $this->instagram;
             $setting->linkedin = $this->linkedin;
             $setting->tiktok = $this->tiktok;
@@ -100,14 +108,14 @@ new class extends Component {
 <div class="flex flex-col items-start">
     @include('partials.settings-heading')
 
-    <x-settings.layout :heading="__('Website Settings')" :subheading="__('Update the appearance and contact settings for your website')">
+    <x-settings.layout :heading="'Website Settings'" :subheading="'Update the appearance and contact settings for your website'">
         <!-- Theme Settings -->
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow rounded-lg mb-6">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">{{ __('Theme Mode') }}</h2>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Theme Mode</h2>
             <flux:radio.group x-data variant="segmented" x-model="$flux.appearance">
-                <flux:radio value="light" icon="sun">{{ __('Light') }}</flux:radio>
-                <flux:radio value="dark" icon="moon">{{ __('Dark') }}</flux:radio>
-                <flux:radio value="system" icon="computer-desktop">{{ __('System') }}</flux:radio>
+                <flux:radio value="light" icon="sun">Light</flux:radio>
+                <flux:radio value="dark" icon="moon">Dark</flux:radio>
+                <flux:radio value="system" icon="computer-desktop">System</flux:radio>
             </flux:radio.group>
         </div>
 
@@ -124,7 +132,7 @@ new class extends Component {
         @endif
 
         <form wire:submit.prevent="save" class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow rounded-lg space-y-6">
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">{{ __('Website Information') }}</h2>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-4">Website Information</h2>
 
             <!-- Logo Section -->
             <div>
@@ -164,12 +172,12 @@ new class extends Component {
 
             <!-- Contact Information Section -->
             <div>
-                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">{{ __('Contact Information') }}</h3>
+                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">Contact Information</h3>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
                         <flux:field>
-                            <flux:label for="phone">Phone Number</flux:label>
+                            <flux:label for="phone">Primary Phone Number</flux:label>
                             <flux:input id="phone" wire:model="phone" placeholder="+1 (234) 567-8900" />
                             <flux:error name="phone" />
                         </flux:field>
@@ -177,9 +185,25 @@ new class extends Component {
 
                     <div>
                         <flux:field>
-                            <flux:label for="email">Email Address</flux:label>
+                            <flux:label for="phone_two">Secondary Phone Number</flux:label>
+                            <flux:input id="phone_two" wire:model="phone_two" placeholder="+1 (234) 567-8900" />
+                            <flux:error name="phone_two" />
+                        </flux:field>
+                    </div>
+
+                    <div>
+                        <flux:field>
+                            <flux:label for="email">Primary Email Address</flux:label>
                             <flux:input id="email" wire:model="email" placeholder="contact@example.com" />
                             <flux:error name="email" />
+                        </flux:field>
+                    </div>
+
+                    <div>
+                        <flux:field>
+                            <flux:label for="email_two">Secondary Email Address</flux:label>
+                            <flux:input id="email_two" wire:model="email_two" placeholder="contact@example.com" />
+                            <flux:error name="email_two" />
                         </flux:field>
                     </div>
                 </div>
@@ -195,7 +219,7 @@ new class extends Component {
 
             <!-- Social Media Section -->
             <div>
-                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">{{ __('Social Media Links') }}</h3>
+                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">Social Media Links</h3>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -242,7 +266,7 @@ new class extends Component {
 
             <!-- Footer Section -->
             <div>
-                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">{{ __('Footer Information') }}</h3>
+                <h3 class="text-md font-medium text-gray-900 dark:text-gray-100 mb-4">Footer Information</h3>
 
                 <div>
                     <flux:field>

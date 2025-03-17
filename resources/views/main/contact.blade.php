@@ -92,8 +92,16 @@
                         <div>
                             <span class="text-xs sm:text-sm text-gray-500">Email Support</span>
                             <ul class="mt-2 space-y-2">
-                                <li><a href="mailto:{{ $setting->email }}"
-                                        class="text-base sm:text-lg text-[#1A2D73] hover:underline">{{ $setting->email }}</a></li>
+                                <li>
+                                    <a href="mailto:{{ $setting->email }}" class="text-base sm:text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->email }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:{{ $setting->email_two }}" class="text-base sm:text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->email_two }}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
 
@@ -104,6 +112,11 @@
                                 <li>
                                     <a href="tel:{{ $setting->phone }}" class="text-base sm:text-lg text-[#1A2D73] hover:underline">
                                         {{ $setting->phone }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tel:{{ $setting->phone_two }}" class="text-base sm:text-lg text-[#1A2D73] hover:underline">
+                                        {{ $setting->phone_two }}
                                     </a>
                                 </li>
                             </ul>

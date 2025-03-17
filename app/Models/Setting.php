@@ -9,7 +9,9 @@ class Setting extends Model
     protected $fillable = [
         'logo',
         'phone',
+        'phone_two',
         'email',
+        'email_two',
         'instagram',
         'linkedin',
         'tiktok',

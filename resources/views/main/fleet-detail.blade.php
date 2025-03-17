@@ -229,9 +229,17 @@
                             <i class="fas fa-phone mr-2"></i>
                             <span>{{ $setting->phone ?? '+628xxxxxxxxxx' }}</span>
                         </a>
+                        <a href="tel:{{ $setting->phone_two ?? '+628xxxxxxxxxx' }}" class="flex items-center text-sm mb-2">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>{{ $setting->phone_two ?? '+628xxxxxxxxxx' }}</span>
+                        </a>
                         <a href="mailto:{{ $setting->email ?? 'info@example.com' }}" class="flex items-center text-sm">
                             <i class="fas fa-envelope mr-2"></i>
                             <span>{{ $setting->email ?? 'info@example.com' }}</span>
+                        </a>
+                        <a href="mailto:{{ $setting->email_two ?? 'info@example.com' }}" class="flex items-center text-sm">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>{{ $setting->email_two ?? 'info@example.com' }}</span>
                         </a>
                     </div>
                 </div>
