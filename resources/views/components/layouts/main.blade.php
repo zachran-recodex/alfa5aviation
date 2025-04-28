@@ -197,7 +197,7 @@
                     <!-- Contact Section -->
                     <div class="mt-6 sm:mt-0">
                         <h6 class="font-semibold text-[#FFDA03] text-xl sm:text-2xl mb-4">Contact Us</h6>
-                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg mb-4">Primary</h6>
+                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg mb-4">Indonesia Office</h6>
                         <ul class="flex flex-col gap-2 sm:gap-4">
                             <li class="flex items-center">
                                 <i class="fas fa-phone mr-2"></i>
@@ -216,7 +216,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg my-4">Secondary</h6>
+                        <h6 class="font-semibold text-[#FFDA03]/80 text-md sm:text-lg my-4">US Office</h6>
                         <ul class="flex flex-col gap-2 sm:gap-4">
                             <li class="flex items-center">
                                 <i class="fas fa-phone mr-2"></i>
